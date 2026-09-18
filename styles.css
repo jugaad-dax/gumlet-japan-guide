@@ -152,3 +152,19 @@ h1 .hero-product { font-size: 1.15em; }
   .step { grid-template-columns: 24px 42px minmax(0,1fr); gap: 9px; }
   .step-icon { width: 40px; height: 40px; }
 }
+
+/* Operator site > its dedicated Gumlet guide: real URLs, no invented categories. */
+.breadcrumb-nav { padding-top: 20px; padding-bottom: 4px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 12px; }
+.breadcrumbs li { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.breadcrumbs li + li::before { content: "/"; color: var(--dim); }
+.breadcrumbs a { display: inline-flex; align-items: center; min-height: 36px; text-decoration: underline; text-underline-offset: 4px; }
+.breadcrumbs a:hover { color: var(--cyan); }
+.breadcrumbs [aria-current="page"] { color: var(--ink); }
+.step[id] { scroll-margin-top: 100px; }
+@media (max-width: 700px) {
+  .breadcrumb-nav { padding-top: 10px; }
+  .breadcrumbs { font-size: 11px; gap: 2px 8px; }
+  .breadcrumbs li { gap: 8px; }
+  .breadcrumbs a { min-height: 44px; }
+}
