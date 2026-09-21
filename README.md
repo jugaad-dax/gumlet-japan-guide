@@ -13,11 +13,21 @@ npm run build
 
 `npm run check`はドメイン、広告開示、紹介特典、FAQ・HowTo、Googleタグ、CSPハッシュ、内部リンクなどを検証します。`npm run build`は検証後、公開用の7ファイルだけを`dist/`へコピーします。ビルド成果物にREADMEや検証コードは含みません。
 
-## 公開設定の候補
+## 本番公開・自動デプロイ
 
-Cloudflare Pagesでビルドを実行する場合、Build commandは`npm run build`、Output directoryは`dist`です。既存のHTMLを直接配信する運用にも対応します。GitHubリポジトリは `jugaad-dax/gumlet-japan-guide`、既存の本番ブランチは`main`です。
+2026年9月21日、[更新PR #1](https://github.com/jugaad-dax/gumlet-japan-guide/pull/1)を`main`にマージし、Cloudflare PagesのGitHub連携による本番デプロイ成功を確認しました。独自ドメインとDNSの接続も完了し、[https://site-speedup.com/](https://site-speedup.com/)で公開しています。
 
-**2026年9月21日の改修では、ローカルの更新ブランチでコードと差分を作成しています。リモートへのプッシュ、本番デプロイ、独自ドメインの追加、DNS設定は実行していません。** URL文字列の更新だけではドメインの接続は完了しません。公開時はCloudflare Pagesのカスタムドメイン・DNS・TLSの状態を別途確認してください。Search Consoleの新ドメインに対する所有権確認やGA4管理画面の設定変更も、このコード更新には含みません。
+| 設定 | 値 |
+|---|---|
+| 本番URL | https://site-speedup.com/ |
+| GitHubリポジトリ | https://github.com/jugaad-dax/gumlet-japan-guide |
+| Pagesプロジェクト | `gumlet-japan-guide` |
+| 本番ブランチ | `main` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| DNS | `site-speedup.com`のCNAME → `gumlet-japan-guide.pages.dev`（プロキシ有効、TTL自動） |
+
+今後も`main`の更新により自動で検証・ビルド・デプロイされます。公開HTMLとアセットの一致、HTTPS接続、HTTPからHTTPSへの転送、スマートフォン・PC表示を確認済みです。Search Consoleの新ドメインに対するプロパティ登録・所有権確認操作、GA4管理画面の設定変更は実施していません。既存の認証タグ・計測コードは維持しています。
 
 ## コンテンツ
 
