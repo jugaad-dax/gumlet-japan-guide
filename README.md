@@ -1,30 +1,36 @@
 # Gumlet Japan Guide & Showcase
 
-ジュガード株式会社が運営する日本向けGumlet導入ガイドです。HTML・CSS・JavaScriptのみで構成した1ページの静的サイトです。
+ジュガード株式会社が運営する日本向けGumlet導入ガイドです。HTML・CSS・JavaScriptのみで構成した、情報提供とアフィリエイト広告のための1ページサイトです。canonical・OGP・構造化データの基準URLは `https://site-speedup.com/` です。
 
-## 公開・デプロイ
+## ビルド
 
-| 設定 | 値 |
-|---|---|
-| 本番URL | https://gumlet-japan-guide.pages.dev/ |
-| GitHub | https://github.com/jugaad-dax/gumlet-japan-guide |
-| 本番ブランチ | `main` |
-| ホスティング | Cloudflare Pages（GitHub連携） |
-| Build command | 空欄（静的ファイルのためビルド不要） |
-| Output directory | `/` |
+Node.js 20以上で、外部パッケージを追加せずに検証とビルドを実行できます。
 
-`main`へのプッシュによりCloudflare Pagesの本番デプロイが起動します。フレームワークやサーバー側ランタイムは不要です。公開前のHTML検証は`npx --yes html-validate index.html`、差分検査は`git diff --check`で実行できます。
+```sh
+npm run check
+npm run build
+```
 
-## コンテンツ・実装
+`npm run check`はドメイン、広告開示、紹介特典、FAQ・HowTo、Googleタグ、CSPハッシュ、内部リンクなどを検証します。`npm run build`は検証後、公開用の7ファイルだけを`dist/`へコピーします。ビルド成果物にREADMEや検証コードは含みません。
 
-ページには比較表、3件のGumlet埋め込み動画、WebPの解説画像、著者情報、FAQとJSON-LDを掲載しています。FAQを変更する際は表示内容とFAQPageの両方を更新し、公開日・更新日もtime要素とJSON-LDで一致させてください。画像はAI生成の概念図であり、製品画面や実測データではありません。
+## 公開設定の候補
 
-アフィリエイトCTAのURLは`https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593`です。外部CTAには`target="_blank" rel="noopener noreferrer"`を付けています。限定特典は運営者が提供した情報であり、残数や適用状況の自動取得機能はありません。条件変更時は表示を更新してください。
+Cloudflare Pagesでビルドを実行する場合、Build commandは`npm run build`、Output directoryは`dist`です。既存のHTMLを直接配信する運用にも対応します。GitHubリポジトリは `jugaad-dax/gumlet-japan-guide`、既存の本番ブランチは`main`です。
 
-## キャッシュ・セキュリティ
+**2026年9月21日の改修では、ローカルの更新ブランチでコードと差分を作成しています。リモートへのプッシュ、本番デプロイ、独自ドメインの追加、DNS設定は実行していません。** URL文字列の更新だけではドメインの接続は完了しません。公開時はCloudflare Pagesのカスタムドメイン・DNS・TLSの状態を別途確認してください。Search Consoleの新ドメインに対する所有権確認やGA4管理画面の設定変更も、このコード更新には含みません。
 
-`_headers`にHSTS、再検証型のCache-Control、nosniff、Gumletプレイヤーを許可するCSPなどを定義しています。CSS/JavaScriptには`?v=`のバージョンが付いているため、大きな更新時は値も更新してください。圧縮はCloudflareの配信機能に任せ、手動でContent-Encodingを付けないでください。
+## コンテンツ
 
-## 検証記録
+ページの最上部にPR表示を設置しています。特典表現は「紹介特典：全有料プラン20%OFF」に統一し、5か所のCTAにコード不要・リンク経由での自動適用を説明しています。これは運営者提供の特典仕様であり、購入操作による割引適用の実証は行っていません。
 
-本番でのレスポンシブ表示、動画コンテナ、操作、HTTPヘッダー、配信ファイルの一致検証と対象外事項は[検証記録](./VALIDATION.md)に記載しています。LLMO監査ツールの点数や検索順位を保証するものではありません。
+トップにはSample 03の実際のGumletプレイヤーをeager loadingで配置しています。サンプル欄の3プレイヤーはlazy loadingです。旧装飾画像と光彩エフェクトを削除し、白・スレート・インディゴの配色に変更しました。シーク・自動再生の可否は端末・ブラウザ設定・動画設定によります。
+
+料金は2026年9月21日に確認した公式公開情報を使い、年払い時の月額相当と従量料金を区別しています。通貨換算は指定値の1米ドル＝156.8円です。最新料金と条件はページ内の公式出典をご確認ください。
+
+## 計測・構造化データ・セキュリティ
+
+Search Console認証タグとGA4 `G-9KJF5ZSXY5`を維持しています。`_headers`のセキュリティ設定も変更していません。インラインGA4コードを変更する場合は、その内容に対応するCSPハッシュも更新してください。
+
+WebPage・WebSite・Organization・Article・FAQPage・HowTo・BreadcrumbListの7種類を保持しています。FAQと手順、日付、ドメインを変更する際は、表示内容とJSON-LDを同期してください。運営会社への個別対応を案内するリンクとContactPointは含めていません。
+
+CSS/JavaScriptの参照には`?v=20260921-1`を付けています。OG画像は汎用性の高いPNGを参照し、編集用SVGも同梱しています。新しい検証結果は[VALIDATION.md](./VALIDATION.md)をご覧ください。

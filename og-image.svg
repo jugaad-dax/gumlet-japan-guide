@@ -1,18 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#103858"/></linearGradient>
-    <radialGradient id="glow"><stop stop-color="#35d9ff" stop-opacity=".46"/><stop offset="1" stop-color="#35d9ff" stop-opacity="0"/></radialGradient>
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#35d9ff" stop-opacity="0"/><stop offset=".5" stop-color="#35d9ff"/><stop offset="1" stop-color="#35d9ff" stop-opacity="0"/></linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="110" r="400" fill="url(#glow)"/><circle cx="65" cy="650" r="330" fill="url(#glow)" opacity=".45"/>
-  <g opacity=".22" stroke="#7fceef"><path d="M0 530H1200M0 460H1200M0 390H1200M0 320H1200M0 250H1200M0 180H1200M0 110H1200"/><path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/></g>
-  <g transform="translate(80 75)"><rect x="0" y="0" width="42" height="42" rx="2" fill="none" stroke="#35d9ff" stroke-width="2" transform="skewX(-10)"/><path d="M8 33h7V22H8zm11 0h7V13h-7zm11 0h7V5h-7z" fill="#35d9ff" transform="skewX(-10)"/><text x="62" y="20" fill="#fff" font-size="25" font-family="Arial, sans-serif" font-weight="700">Gumlet <tspan fill="#35d9ff">Japan</tspan></text><text x="62" y="38" fill="#7c99b8" font-size="10" font-family="Arial, sans-serif" font-weight="700" letter-spacing="2">GUIDE &amp; SHOWCASE</text></g>
-  <text x="80" y="220" fill="#35d9ff" font-size="18" font-family="Arial, sans-serif" font-weight="700" letter-spacing="3">JAPAN IMPLEMENTATION GUIDE</text>
-  <text x="80" y="315" fill="#f1fbff" font-size="61" font-family="Arial, sans-serif" font-weight="700">高速・安全・低コストな</text>
-  <text x="80" y="392" fill="#f1fbff" font-size="61" font-family="Arial, sans-serif" font-weight="700">次世代動画ホスティング</text>
-  <text x="80" y="468" fill="#35d9ff" font-size="65" font-family="Arial, sans-serif" font-weight="800">Gumlet</text>
-  <path d="M80 510H760" stroke="url(#line)" stroke-width="2"/>
-  <text x="80" y="555" fill="#a8c1d8" font-size="24" font-family="Arial, sans-serif">Vimeo代替・AWS運用の課題を解決</text>
-  <g transform="translate(930 320)"><rect width="200" height="130" rx="10" fill="#0b1e37" stroke="#35d9ff" stroke-opacity=".7"/><path d="M0 105L210 12" stroke="#35d9ff" stroke-opacity=".45"/><circle cx="102" cy="65" r="30" fill="#35d9ff" fill-opacity=".16" stroke="#a6f1ff"/><path d="M96 49l26 16-26 16z" fill="#35d9ff"/></g>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#3730a3"/>
+  <rect x="64" y="68" width="42" height="42" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <path d="M74 100h6V89h-6zm9 0h6V82h-6zm9 0h6V75h-6z" fill="#3730a3"/>
+  <text x="121" y="96" fill="#0f172a" font-size="27" font-family="sans-serif" font-weight="700">Gumlet Japan Guide</text>
+  <text x="65" y="177" fill="#64748b" font-size="17" font-family="monospace" letter-spacing="2">VIDEO HOSTING / JAPAN GUIDE</text>
+  <text x="62" y="275" fill="#0f172a" font-size="60" font-family="sans-serif" font-weight="700">動画配信を、もっとシンプルに。</text>
+  <text x="62" y="354" fill="#3730a3" font-size="63" font-family="sans-serif" font-weight="700">Gumlet 導入ガイド</text>
+  <text x="65" y="420" fill="#475569" font-size="25" font-family="sans-serif">公開料金の比較 / 実際のプレイヤー / 実装手順</text>
+  <path d="M65 478H1135" stroke="#e2e8f0"/>
+  <rect x="65" y="510" width="369" height="48" rx="5" fill="#f5f5ff" stroke="#dcdcf3"/>
+  <text x="82" y="541" fill="#3730a3" font-size="21" font-family="sans-serif" font-weight="600">紹介特典：全有料プラン20%OFF</text>
+  <text x="1135" y="542" fill="#64748b" font-size="21" font-family="monospace" text-anchor="end">site-speedup.com</text>
+  <text x="66" y="598" fill="#64748b" font-size="14" font-family="sans-serif">PR / プロモーション・アフィリエイト広告を含みます</text>
 </svg>
