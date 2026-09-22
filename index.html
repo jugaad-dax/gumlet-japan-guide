@@ -19,18 +19,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#FFFFFF">
   <meta name="color-scheme" content="light">
-  <title>Gumlet（ガムレット）導入ガイド・コスト比較 | 次世代動画ホスティング</title>
-  <meta name="description" content="Vimeo・AWSとの料金比較、実際の埋め込み動画、実装手順で検討するGumlet日本向け導入ガイド。紹介特典：全有料プラン20%OFF。ジュガード株式会社運営のアフィリエイトメディア。">
+  <title>Gumlet日本語ガイド | 動画・画像最適化でサイト高速化＆脱Vimeo【site-speedup.com】</title>
+  <meta name="description" content="重い動画・画像を最適化してWebサイトの表示速度改善を支援。Vimeoの料金・帯域条件の比較、受講者情報を表示する動的ウォーターマークなどの動画保護機能を解説する、次世代動画インフラGumletの日本語ガイドサイト。">
   <meta name="keywords" content="Gumlet, ガムレット, 動画ホスティング, 動画配信, コスト削減, ストリーミング, CDN, DRM, Vimeo代替, AWS CloudFront, 動画プレイヤー">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://site-speedup.com/">
+  <link rel="alternate" type="text/plain" href="https://site-speedup.com/llms.txt" title="site-speedup.com LLM information">
   <link rel="preconnect" href="https://play.gumlet.io">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="article">
+  <meta property="article:modified_time" content="2026-09-22T00:00:00+09:00">
   <meta property="og:site_name" content="Gumlet Japan Guide &amp; Showcase">
-  <meta property="og:title" content="Gumlet（ガムレット）導入ガイド・コスト比較 | 次世代動画ホスティング">
-  <meta property="og:description" content="Vimeo・AWSとの料金比較、実際の埋め込み動画、実装手順で検討するGumlet日本向け導入ガイド。紹介特典：全有料プラン20%OFF。ジュガード株式会社運営のアフィリエイトメディア。">
+  <meta property="og:title" content="Gumlet日本語ガイド | 動画・画像最適化でサイト高速化＆脱Vimeo【site-speedup.com】">
+  <meta property="og:description" content="重い動画・画像を最適化してWebサイトの表示速度改善を支援。Vimeoの料金・帯域条件の比較、受講者情報を表示する動的ウォーターマークなどの動画保護機能を解説する、次世代動画インフラGumletの日本語ガイドサイト。">
   <meta property="og:url" content="https://site-speedup.com/">
   <meta property="og:image" content="https://site-speedup.com/og-image.png">
   <meta property="og:image:type" content="image/png">
@@ -38,20 +40,21 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Gumlet Japan Guide & Showcase — 高速・安全・低コストな動画配信インフラ">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Gumlet（ガムレット）導入ガイド・コスト比較">
-  <meta name="twitter:description" content="Vimeo・AWSとの料金比較、実際の埋め込み動画、実装手順で検討するGumlet日本向け導入ガイド。紹介特典：全有料プラン20%OFF。ジュガード株式会社運営のアフィリエイトメディア。">
+  <meta name="author" content="ジュガード株式会社">
+  <meta name="twitter:title" content="Gumlet日本語ガイド | 動画・画像最適化でサイト高速化＆脱Vimeo【site-speedup.com】">
+  <meta name="twitter:description" content="重い動画・画像を最適化してWebサイトの表示速度改善を支援。Vimeoの料金・帯域条件の比較、受講者情報を表示する動的ウォーターマークなどの動画保護機能を解説する、次世代動画インフラGumletの日本語ガイドサイト。">
   <meta name="twitter:image" content="https://site-speedup.com/og-image.png">
   <link rel="stylesheet" href="/styles.css?v=20260921-1">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Gumlet（ガムレット）導入ガイド・コスト比較 | 次世代動画ホスティング",
-  "description": "Vimeo・AWSとの料金比較、実際の埋め込み動画、実装手順で検討するGumlet日本向け導入ガイド。紹介特典：全有料プラン20%OFF。ジュガード株式会社運営のアフィリエイトメディア。",
+  "name": "Gumlet日本語ガイド | 動画・画像最適化でサイト高速化＆脱Vimeo【site-speedup.com】",
+  "description": "重い動画・画像を最適化してWebサイトの表示速度改善を支援。Vimeoの料金・帯域条件の比較、受講者情報を表示する動的ウォーターマークなどの動画保護機能を解説する、次世代動画インフラGumletの日本語ガイドサイト。",
   "url": "https://site-speedup.com/",
   "inLanguage": "ja-JP",
   "datePublished": "2026-09-17",
-  "dateModified": "2026-09-21",
+  "dateModified": "2026-09-22",
   "author": {
     "@type": "Person",
     "name": "岡本大輔",
@@ -84,45 +87,101 @@
 }
   </script>
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Gumletはどのような動画配信に向いていますか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "自社サイトの動画埋め込み、会員向けコンテンツ、オンライン研修、ブランド動画など、独自プレイヤーとCDN配信を両立したい用途に適しています。必要な機能と利用条件は公式情報をご確認ください。"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://site-speedup.com/#website",
+        "url": "https://site-speedup.com/",
+        "name": "site-speedup.com",
+        "description": "Gumlet日本語ガイド。動画・画像最適化、Vimeo代替の料金比較、動画保護機能の確認方法を解説します。",
+        "inLanguage": "ja-JP",
+        "publisher": {
+          "@id": "https://site-speedup.com/#organization"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://site-speedup.com/#software",
+        "name": "Gumlet",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "無料プランあり。利用枠・超過料金・機能は公式料金表で確認が必要です。",
+          "url": "https://www.gumlet.com/pricing/"
+        },
+        "description": "動画のホスティング・トランスコード・ストリーミングと、画像の最適化配信を提供するサービス。動画保護機能や画像最適化の利用条件は公式情報を確認してください。",
+        "sameAs": "https://www.gumlet.com/"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://site-speedup.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Gumletはどのような動画配信に向いていますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "自社サイトの動画埋め込み、会員向けコンテンツ、オンライン研修、ブランド動画など、独自プレイヤーとCDN配信を両立したい用途に適しています。必要な機能と利用条件は公式情報をご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "無料トライアルを始める前に確認すべきことは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "動画本数、月間視聴量、視聴地域、必要なアクセス制御、既存サイトの実装方式を整理すると、比較と検証を進めやすくなります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "VimeoやAWS独自構築と比較する際のポイントは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "初期導入工数、帯域・運用を含めた総コスト、アクセス制御、プレイヤーのブランドカスタマイズ、社内で保有する運用リソースを同じ条件で比較します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "VimeoからGumletへ乗り換えるメリットは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "動画本数、視聴量、必要な保護機能、契約条件を同じ前提で比較できます。Gumletは無料プランと複数の有料プランを提供しており、帯域・ストレージの利用枠と超過料金を確認して、Vimeoを含む候補と総コストを比較することが重要です。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "オンライン講座や有料会員サイトの動画流出・画面録画は防止できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "動画保護には、許可ドメインでの再生制限、署名付きURL、DRM、動的ウォーターマークなどを組み合わせます。動的ウォーターマークでは、視聴者情報を動画上に表示して無断共有を抑止できますが、あらゆる録画や複製を完全に防止するものではありません。利用可否・料金・対応環境は公式情報をご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "動画を導入するとWebサイトの表示速度が遅くなりませんか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "動画は埋め込み方法、ポスター画像、遅延読み込み、視聴者の回線、配信設定によって表示速度へ影響します。Gumletの動画ストリーミングやGumlet Imageのレスポンシブ配信・自動フォーマット変換は最適化の選択肢ですが、Core Web Vitalsの改善は実装後に計測して確認してください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "このサイトの20%OFF特典はどのように利用できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "本ページのリンク経由でアカウント作成・アップグレードすると、全有料プランに20%OFFが自動適用されます。プロモーションコードの入力は不要です。"
+            }
+          }
+        ]
       }
-    },
-    {
-      "@type": "Question",
-      "name": "無料トライアルを始める前に確認すべきことは何ですか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "動画本数、月間視聴量、視聴地域、必要なアクセス制御、既存サイトの実装方式を整理すると、比較と検証を進めやすくなります。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "VimeoやAWS独自構築と比較する際のポイントは何ですか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "初期導入工数、帯域・運用を含めた総コスト、アクセス制御、プレイヤーのブランドカスタマイズ、社内で保有する運用リソースを同じ条件で比較します。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "このサイトの20%OFF特典はどのように利用できますか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "本ページのリンク経由でアカウント作成・アップグレードすると、全有料プランに20%OFFが自動適用されます。プロモーションコードの入力は不要です。"
-      }
-    }
-  ]
-}
-  </script>
+    ]
+  }
+    </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -138,23 +197,10 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://site-speedup.com/#website",
-  "name": "Gumlet Japan Guide & Showcase",
-  "url": "https://site-speedup.com/",
-  "inLanguage": "ja-JP",
-  "publisher": {
-    "@id": "https://site-speedup.com/#organization"
-  }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "Article",
   "@id": "https://site-speedup.com/#article",
-  "headline": "Gumlet（ガムレット）導入ガイド・コスト比較 | 次世代動画ホスティング",
-  "description": "Vimeo・AWSとの料金比較、実際の埋め込み動画、実装手順で検討するGumlet日本向け導入ガイド。紹介特典：全有料プラン20%OFF。ジュガード株式会社運営のアフィリエイトメディア。",
+  "headline": "Gumlet日本語ガイド | 動画・画像最適化でサイト高速化＆脱Vimeo【site-speedup.com】",
+  "description": "重い動画・画像を最適化してWebサイトの表示速度改善を支援。Vimeoの料金・帯域条件の比較、受講者情報を表示する動的ウォーターマークなどの動画保護機能を解説する、次世代動画インフラGumletの日本語ガイドサイト。",
   "url": "https://site-speedup.com/",
   "inLanguage": "ja-JP",
   "mainEntityOfPage": {
@@ -176,7 +222,7 @@
     "@id": "https://site-speedup.com/#organization"
   },
   "datePublished": "2026-09-17",
-  "dateModified": "2026-09-21",
+  "dateModified": "2026-09-22",
   "image": [
     "https://site-speedup.com/og-image.png"
   ],
@@ -293,7 +339,7 @@
         </div>
         <p class="container hero-note">機能・料金はプランにより異なります。自動再生は端末やブラウザ設定によって制限される場合があります。</p>
       </header>
-      <section class="trust-strip" aria-label="記事情報"><div class="container trust-strip-inner"><p><span>公開日</span><time datetime="2026-09-17">2026年9月17日</time></p><p><span>最終更新日</span><time datetime="2026-09-21">2026年9月21日</time></p><p><span>執筆・監修</span>ジュガード株式会社 / 岡本大輔</p></div></section>
+      <section class="trust-strip" aria-label="記事情報"><div class="container trust-strip-inner"><p><span>公開日</span><time datetime="2026-09-17">2026年9月17日</time></p><p><span>最終更新日</span><time datetime="2026-09-22">2026年9月22日</time></p><p><span>執筆・監修</span>ジュガード株式会社 / 岡本大輔</p></div></section>
 
       <section class="pain section" id="pain-points" aria-labelledby="pain-title"><div class="container"><div class="section-heading"><span class="section-label">01 / THE CHALLENGE</span><h2 id="pain-title">配信の仕組みを、<br>見直すタイミング。</h2><p>動画を増やす前に、コスト・運用・ブランド・保護の4つの課題を整理します。</p></div><ul class="pain-grid">
         <li class="pain-card"><span class="card-number">01</span><h3>配信コストが読めない</h3><p>プラン改定や帯域の追加費用によって、想定よりも年間コストが増えてしまう。</p></li>
@@ -353,9 +399,9 @@
 
       <section class="authority section" id="author" aria-labelledby="author-title"><div class="container authority-grid"><div class="author-card"><span class="section-label">AUTHOR &amp; REVIEWER</span><h2 id="author-title">著者・監修者情報</h2><dl><dt>氏名</dt><dd>岡本大輔</dd><dt>役職</dt><dd>ジュガード株式会社 代表取締役</dd><dt>専門領域</dt><dd>動画制作、動画活用設計、デジタルマーケティング、Go-To-Market支援</dd><dt>運営者</dt><dd><a href="https://jugaad.tokyo/" target="_blank" rel="noopener noreferrer">ジュガード株式会社（Jugaad Inc.）</a></dd></dl></div><aside class="editorial-policy" aria-label="編集方針と広告の開示"><span class="section-label">EDITORIAL POLICY</span><h3>情報提供を目的とした、<br>アフィリエイトメディアです。</h3><p>当サイトは公開情報と運営者の実装経験を整理し、サービスを選ぶための判断材料を提供します。機能・契約・実装仕様は、提供元の管理画面と公式ドキュメントでご確認ください。</p><p class="affiliate-note">当サイトはGumletのアフィリエイトパートナーとして情報を発信しています。本ページのリンク経由で登録・購入が行われた場合、運営者に紹介料が支払われることがあります。</p></aside></div></section>
 
-      <section class="faq section" id="faq" aria-labelledby="faq-title"><div class="container faq-layout"><div class="faq-intro"><span class="section-label">06 / FAQ</span><h2 id="faq-title">導入前によくある質問</h2><p>価格・機能・契約条件は、Gumlet公式サイトの最新情報を確認してください。</p></div><div class="faq-list"><details open><summary>Gumletはどのような動画配信に向いていますか？</summary><p>自社サイトの動画埋め込み、会員向けコンテンツ、オンライン研修、ブランド動画など、独自プレイヤーとCDN配信を両立したい用途に適しています。必要な機能と利用条件は公式情報をご確認ください。</p></details><details><summary>無料トライアルを始める前に確認すべきことは何ですか？</summary><p>動画本数、月間視聴量、視聴地域、必要なアクセス制御、既存サイトの実装方式を整理すると、比較と検証を進めやすくなります。</p></details><details><summary>VimeoやAWS独自構築と比較する際のポイントは何ですか？</summary><p>初期導入工数、帯域・運用を含めた総コスト、アクセス制御、プレイヤーのブランドカスタマイズ、社内で保有する運用リソースを同じ条件で比較します。</p></details><details><summary>このサイトの20%OFF特典はどのように利用できますか？</summary><p>本ページのリンク経由でアカウント作成・アップグレードすると、全有料プランに20%OFFが自動適用されます。プロモーションコードの入力は不要です。</p></details></div></div></section>
+      <section class="faq section" id="faq" aria-labelledby="faq-title"><div class="container faq-layout"><div class="faq-intro"><span class="section-label">06 / FAQ</span><h2 id="faq-title">導入前によくある質問</h2><p>価格・機能・契約条件は、Gumlet公式サイトの最新情報を確認してください。</p></div><div class="faq-list"><details open><summary>Gumletはどのような動画配信に向いていますか？</summary><p>自社サイトの動画埋め込み、会員向けコンテンツ、オンライン研修、ブランド動画など、独自プレイヤーとCDN配信を両立したい用途に適しています。必要な機能と利用条件は公式情報をご確認ください。</p></details><details><summary>無料トライアルを始める前に確認すべきことは何ですか？</summary><p>動画本数、月間視聴量、視聴地域、必要なアクセス制御、既存サイトの実装方式を整理すると、比較と検証を進めやすくなります。</p></details><details><summary>VimeoやAWS独自構築と比較する際のポイントは何ですか？</summary><p>初期導入工数、帯域・運用を含めた総コスト、アクセス制御、プレイヤーのブランドカスタマイズ、社内で保有する運用リソースを同じ条件で比較します。</p></details><details><summary>VimeoからGumletへ乗り換えるメリットは何ですか？</summary><p>動画本数、視聴量、必要な保護機能、契約条件を同じ前提で比較できます。Gumletは無料プランと複数の有料プランを提供しており、帯域・ストレージの利用枠と超過料金を確認して、Vimeoを含む候補と総コストを比較することが重要です。</p></details><details><summary>オンライン講座や有料会員サイトの動画流出・画面録画は防止できますか？</summary><p>動画保護には、許可ドメインでの再生制限、署名付きURL、DRM、動的ウォーターマークなどを組み合わせます。動的ウォーターマークでは、視聴者情報を動画上に表示して無断共有を抑止できますが、あらゆる録画や複製を完全に防止するものではありません。利用可否・料金・対応環境は公式情報をご確認ください。</p></details><details><summary>動画を導入するとWebサイトの表示速度が遅くなりませんか？</summary><p>動画は埋め込み方法、ポスター画像、遅延読み込み、視聴者の回線、配信設定によって表示速度へ影響します。Gumletの動画ストリーミングやGumlet Imageのレスポンシブ配信・自動フォーマット変換は最適化の選択肢ですが、Core Web Vitalsの改善は実装後に計測して確認してください。</p></details><details><summary>このサイトの20%OFF特典はどのように利用できますか？</summary><p>本ページのリンク経由でアカウント作成・アップグレードすると、全有料プランに20%OFFが自動適用されます。プロモーションコードの入力は不要です。</p></details></div></div></section>
 
-      <section class="sources section" id="sources" aria-labelledby="sources-title"><div class="container"><span class="section-label">PRIMARY SOURCES</span><h2 id="sources-title">公式情報・編集方針</h2><p>製品仕様・料金は公式情報を優先し、比較は当サイトの導入検討上の見解として記載しています。年払い時の月額相当、利用地域、税、超過料金を区別してご確認ください。</p><ul class="source-links"><li><a href="https://www.gumlet.com/pricing/" target="_blank" rel="noopener noreferrer">Gumlet公式料金表</a></li><li><a href="https://vimeo.com/pricing" target="_blank" rel="noopener noreferrer">Vimeo公式料金表</a></li><li><a href="https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/" target="_blank" rel="noopener noreferrer">AWS CloudFront従量課金</a></li><li><a href="https://aws.amazon.com/s3/pricing/" target="_blank" rel="noopener noreferrer">Amazon S3料金表</a></li><li><a href="https://docs.gumlet.com/docs/getting-started" target="_blank" rel="noopener noreferrer">Gumlet公式ドキュメント</a></li><li><a href="https://jugaad.tokyo/" target="_blank" rel="noopener noreferrer">運営会社情報</a></li></ul></div></section>
+      <section class="sources section" id="sources" aria-labelledby="sources-title"><div class="container"><span class="section-label">PRIMARY SOURCES</span><h2 id="sources-title">公式情報・編集方針</h2><p>製品仕様・料金は公式情報を優先し、比較は当サイトの導入検討上の見解として記載しています。年払い時の月額相当、利用地域、税、超過料金を区別してご確認ください。</p><ul class="source-links"><li><a href="https://www.gumlet.com/pricing/" target="_blank" rel="noopener noreferrer">Gumlet公式料金表</a></li><li><a href="https://vimeo.com/pricing" target="_blank" rel="noopener noreferrer">Vimeo公式料金表</a></li><li><a href="https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/" target="_blank" rel="noopener noreferrer">AWS CloudFront従量課金</a></li><li><a href="https://aws.amazon.com/s3/pricing/" target="_blank" rel="noopener noreferrer">Amazon S3料金表</a></li><li><a href="https://docs.gumlet.com/docs/getting-started" target="_blank" rel="noopener noreferrer">Gumlet公式ドキュメント</a></li><li><a href="https://www.gumlet.com/video-protection/" target="_blank" rel="noopener noreferrer">Gumlet公式：動画保護機能</a></li><li><a href="https://www.gumlet.com/image-optimization/" target="_blank" rel="noopener noreferrer">Gumlet公式：画像最適化</a></li><li><a href="/llms.txt">AIクローラー向けサイト要約（llms.txt）</a></li><li><a href="https://jugaad.tokyo/" target="_blank" rel="noopener noreferrer">運営会社情報</a></li></ul></div></section>
       <section class="terms section" id="terms" aria-labelledby="terms-title"><div class="container terms-inner"><span class="section-label">SITE TERMS</span><h2 id="terms-title">利用規約・情報の取り扱い</h2><p>本サイトは導入検討のための情報提供を目的としています。機能、価格、契約条件および特典の内容は変更される場合があるため、最終的な判断はGumlet公式サイトおよび提供元の最新情報に基づいてください。</p><a class="inline-link" href="https://jugaad.tokyo/privacy/" target="_blank" rel="noopener noreferrer">プライバシーポリシー <span aria-hidden="true">↗</span></a></div></section>
       <section class="final-cta section" id="start" aria-labelledby="cta-title"><div class="container final-cta-inner"><span class="offer-badge">紹介特典：全有料プラン20%OFF</span><h2 id="cta-title">次の動画で、<br>配信環境を確かめよう。</h2><p>プレイヤーの操作感、管理画面、公開範囲。<br>自社の要件に合うか、一本の動画から。</p><a class="button button-primary button-large" href="https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593" target="_blank" rel="noopener noreferrer" aria-describedby="final-offer-note">20%OFF特典を適用してGumletを試す <span aria-hidden="true">↗</span></a><p class="offer-note" id="final-offer-note">※本ページのリンク経由でアカウント作成・アップグレードすると自動で20%OFFが適用されます（プロモーションコードの入力は不要です）</p></div></section>
     </article>
