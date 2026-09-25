@@ -26,6 +26,20 @@ const routes = [
 
 assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n');
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
+assert(html.includes('<title>Gumlet日本語ガイド｜動画・画像最適化でWeb表示高速化</title>'));
+assert(html.includes('meta http-equiv="last-modified" content="2026-09-25T00:00:00+09:00"'));
+assert(html.includes('<meta property="og:type" content="website">'));
+assert(html.includes('<meta property="og:image" content="https://site-speedup.com/assets/og-image.png">'));
+assert(html.includes('<meta name="twitter:image" content="https://site-speedup.com/assets/og-image.png">'));
+assert(html.includes('"@type": "VideoObject"'));
+assert(html.includes('"@type": "Organization"'));
+assert(html.includes('"@type": "Article"'));
+assert(html.includes('"@type": "HowTo"'));
+assert.equal((html.match(/<h1>/g) || []).length, 1);
+assert(html.includes('<h1>高速・安全・低コストな動画・画像ホスティング<br><span>Gumlet 日本語ガイド</span></h1>'));
+assert(html.includes('<address class="company-info" style="font-style: normal;">'));
+assert(html.includes('〒238-0101 神奈川県三浦市南下浦町上宮田3202番14の509'));
+assert(html.includes('src="/assets/gumlet-speed-architecture.webp"'));
 assert(!html.includes('ジュガード株式会社の公式サイトでは、メイン動画の配信基盤としてGumletを採用しています。'));
 assert(html.includes('美容室YQUIMのサイトでは、メイン動画の配信基盤としてGumletを採用しています。'));
 assert(html.includes('Core Web Vitals（LCP/CLS）'));
@@ -42,7 +56,7 @@ for (const url of affiliate) {
 }
 const inline = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 assert(headers.includes(`sha256-${createHash('sha256').update(inline).digest('base64')}`));
-for (const directive of ['/_astro/*', '/_next/static/*', '/assets/*', 'Cache-Control: public, max-age=0, must-revalidate']) assert(headers.includes(directive), directive);
+for (const directive of ['/_astro/*', '/_next/static/*', '/assets/*', 'Cache-Control: public, max-age=0, must-revalidate', 'Last-Modified: Fri, 25 Sep 2026 00:00:00 GMT']) assert(headers.includes(directive), directive);
 for (const route of routes) {
   assert(existsSync(path.join(root, route.file)), route.file);
   const page = text(route.file);
@@ -57,6 +71,6 @@ for (const route of routes) {
 }
 for (const term of ['https://site-speedup.com/vimeo-alternative/', 'https://site-speedup.com/pricing/', 'https://site-speedup.com/guide/embed/', '最終更新日: 2026-09-25']) assert(llms.includes(term), term);
 assert.equal((sitemap.match(/<lastmod>2026-09-25<\/lastmod>/g) || []).length, 4);
-for (const name of ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'llms.txt', 'robots.txt', 'sitemap.xml', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/embed/index.html']) assert(existsSync(path.join(root, name)), name);
+for (const name of ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/gumlet-speed-architecture.webp', 'assets/og-image.png', 'llms.txt', 'robots.txt', 'sitemap.xml', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/embed/index.html']) assert(existsSync(path.join(root, name)), name);
 assert(!css.includes('radial-gradient'));
-console.log('PASS: redirect asset, canonical URLs, E-E-A-T, cluster pages, affiliate attributes, crawler files and static build inputs.');
+console.log('PASS: redirect asset, canonical URLs, metadata, VideoObject, E-E-A-T, cluster pages, affiliate attributes, crawler files and static build inputs.');
