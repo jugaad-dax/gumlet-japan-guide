@@ -346,7 +346,10 @@ h1 span { color: var(--accent); font-size: 1.18em; letter-spacing: -.06em; }
 .operator-info dl { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 10px 24px; max-width: 860px; margin: 0; color: var(--muted); font-size: 13px; }
 .operator-info dt { color: var(--subtle); }
 .operator-info dd { margin: 0; }
+.company-info { max-width: 860px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.company-info p, .company-service { margin: 0 0 8px; }
+.company-service { max-width: 860px; color: var(--muted); font-size: 13px; }
 .operator-info a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 .analyzer-link { margin-block: 0 21px; }
 @media (max-width: 800px) { .article-grid { grid-template-columns: minmax(0, 1fr); } .page-hero { padding-block: 34px 30px; } }
-@media (max-width: 500px) { .page-hero p { font-size: 13px; } .operator-info { padding-block: 36px; } .operator-info dl { grid-template-columns: 82px minmax(0, 1fr); gap: 10px 14px; font-size: 12px; } .callout { padding: 22px; } }
+@media (max-width: 500px) { .page-hero p { font-size: 13px; } .operator-info { padding-block: 36px; } .operator-info dl { grid-template-columns: 82px minmax(0, 1fr); gap: 10px 14px; font-size: 12px; } .company-info, .company-service { font-size: 12px; } .callout { padding: 22px; } }
