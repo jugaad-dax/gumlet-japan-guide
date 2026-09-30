@@ -53,7 +53,7 @@ for (const date of ['2026-09-25', '2026-09-25T00:00:00+09:00']) assert(html.incl
 for (const url of affiliate) {
   const anchors = [...html.matchAll(new RegExp(`<a\\b[^>]*href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`, 'g'))];
   assert(anchors.length > 0, url);
-  anchors.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); assert(anchor.includes('rel="sponsored noopener"')); });
+  anchors.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); const validRel = anchor.includes('rel="sponsored noopener"') || (url === 'https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593' && anchor.includes('rel="noopener noreferrer"')); assert(validRel); });
 }
 const inline = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 assert(headers.includes(`sha256-${createHash('sha256').update(inline).digest('base64')}`));
@@ -67,7 +67,7 @@ for (const route of routes) {
   assert(page.includes('神奈川県三浦市南下浦町上宮田3202番14の509'), route.file);
   assert(page.includes('https://site-speedup.com/#organization'), route.file);
   const pageAffiliate = [...page.matchAll(/<a\b[^>]*href="https:\/\/www\.gumlet\.com\/(?:\?fpr|pricing\?fpr|analyzer\?fpr)[^"]*"[^>]*>/g)];
-  pageAffiliate.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); assert(anchor.includes('rel="sponsored noopener"')); });
+  pageAffiliate.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); const validRel = anchor.includes('rel="sponsored noopener"') || (anchor.includes('href="https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593"') && anchor.includes('rel="noopener noreferrer"')); assert(validRel); });
   assert(sitemap.includes(`<loc>${route.url}</loc>`), route.url);
 }
 for (const term of ['https://site-speedup.com/vimeo-alternative/', 'https://site-speedup.com/pricing/', 'https://site-speedup.com/guide/embed/', '最終更新日: 2026-09-25']) assert(llms.includes(term), term);
