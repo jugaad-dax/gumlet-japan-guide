@@ -12,7 +12,7 @@
 
 ## 主要ページ
 
-- [トップ：動画・画像最適化とGumlet導入ガイド](https://site-speedup.com/) — Web表示高速化とCore Web Vitalsを意識した動画・画像最適化、動画配信比較、プレイヤー例を案内します。
+- [トップ：動画・画像最適化とGumlet導入ガイド](https://site-speedup.com/) — Web表示高速化とCore Web Vitalsを意識した動画・画像最適化、動画配信比較、プレイヤー例、WebP形式の説明画像を案内します。
 - [Vimeo代替ガイド](https://site-speedup.com/vimeo-alternative/) — Vimeo、AWS独自構築、Gumletを、料金・保護・導入工数の観点で比較します。
 - [料金ガイド](https://site-speedup.com/pricing/) — プラン、利用枠、超過料金、全有料プラン20%OFF特典の確認手順をまとめます。
 - [高速埋め込み・DRM設定ガイド](https://site-speedup.com/guide/embed/) — レスポンシブiframe、遅延読み込み、Core Web Vitals、DRM・ドメイン制限の実装観点を解説します。
@@ -23,8 +23,14 @@ Gumletは動画の保存、トランスコード、ストリーミング、埋�
 
 画像・動画最適化の効果は、既存実装、読み込み順序、画像サイズ、ネットワーク条件で変わります。実装前後にLCP、CLS、INP、転送量、再生開始時間を測定してください。
 
+## コンテンツ構造・画像
+
+- トップページは課題整理、機能比較表、3つの実際のGumlet埋め込みプレイヤー、画像・動画配信の説明画像、導入事例、クイックスタート、FAQ、著者・運営者情報で構成されています。
+- 説明画像はWebP形式で、`width`・`height`・`alt`・`loading="lazy"`を指定しています。比較表はスマートフォンで横スクロールでき、動画プレイヤーは16:9のレスポンシブiframeです。
+
 ## 一次情報
 
+- Gumlet公式サイト: https://www.gumlet.com/
 - Gumlet公式料金: https://www.gumlet.com/pricing/
 - Gumlet公式ドキュメント: https://docs.gumlet.com/
 - Vimeo公式料金: https://vimeo.com/pricing
@@ -33,5 +39,5 @@ Gumletは動画の保存、トランスコード、ストリーミング、埋�
 
 ## 更新情報
 
-- 最終更新日: 2026-09-25
+- 最終更新日: 2026-10-06
 - 本ファイル: https://site-speedup.com/llms.txt
