@@ -24,13 +24,13 @@
   <meta name="keywords" content="Gumlet, ガムレット, 動画ホスティング, 動画配信, コスト削減, ストリーミング, CDN, DRM, Vimeo代替, AWS CloudFront, 動画プレイヤー">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://site-speedup.com/">
-  <meta http-equiv="last-modified" content="2026-09-25T00:00:00+09:00">
+  <meta http-equiv="last-modified" content="2026-10-06T00:00:00+09:00">
   <link rel="alternate" type="text/plain" href="https://site-speedup.com/llms.txt" title="site-speedup.com LLM information">
   <link rel="preconnect" href="https://play.gumlet.io">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
-  <meta property="article:modified_time" content="2026-09-25T00:00:00+09:00">
+  <meta property="article:modified_time" content="2026-10-06T00:00:00+09:00">
   <meta property="og:site_name" content="Gumlet Japan Guide &amp; Showcase">
   <meta property="og:title" content="Gumlet日本語ガイド｜動画・画像最適化でWeb表示高速化">
   <meta property="og:description" content="動画や画像の最適化とCDN配信によりWeb表示を高速化し、Core Web Vitalsを改善。Gumlet導入手順と限定特典。">
@@ -45,7 +45,7 @@
   <meta name="twitter:title" content="Gumlet日本語ガイド｜動画・画像最適化でWeb表示高速化">
   <meta name="twitter:description" content="動画や画像の最適化とCDN配信によりWeb表示を高速化し、Core Web Vitalsを改善。">
   <meta name="twitter:image" content="https://site-speedup.com/assets/og-image.png">
-  <link rel="stylesheet" href="/styles.css?v=20260921-1">
+  <link rel="stylesheet" href="/styles.css?v=20261006-1">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,7 +55,7 @@
   "url": "https://site-speedup.com/",
   "inLanguage": "ja-JP",
   "datePublished": "2026-09-17",
-  "dateModified": "2026-09-25",
+  "dateModified": "2026-10-06",
   "author": {
     "@type": "Person",
     "name": "岡本大輔",
@@ -117,6 +117,22 @@
         },
         "description": "動画のホスティング・トランスコード・ストリーミングと、画像の最適化配信を提供するサービス。動画保護機能や画像最適化の利用条件は公式情報を確認してください。",
         "sameAs": "https://www.gumlet.com/"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://site-speedup.com/#image-delivery-visual",
+        "name": "Gumlet Imageによる画像最適化配信のイメージ",
+        "contentUrl": "https://site-speedup.com/assets/gumlet-image-delivery.webp",
+        "caption": "JPEG、WebP、AVIFなどを用途に合わせて最適化しCDN配信するイメージです。",
+        "representativeOfPage": false
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://site-speedup.com/#video-api-visual",
+        "name": "Gumlet Video APIと埋め込みプレイヤーのイメージ",
+        "contentUrl": "https://site-speedup.com/assets/gumlet-video-api.webp",
+        "caption": "動画APIと埋め込みコードを使った動画配信実装のイメージです。",
+        "representativeOfPage": false
       },
       {
         "@type": "FAQPage",
@@ -235,9 +251,11 @@
     "@id": "https://site-speedup.com/#organization"
   },
   "datePublished": "2026-09-17",
-  "dateModified": "2026-09-25",
+  "dateModified": "2026-10-06",
   "image": [
-    "https://site-speedup.com/assets/og-image.png"
+    "https://site-speedup.com/assets/og-image.png",
+    "https://site-speedup.com/assets/gumlet-image-delivery.webp",
+    "https://site-speedup.com/assets/gumlet-video-api.webp"
   ],
   "articleSection": [
     "動画ホスティングの導入比較",
@@ -365,7 +383,7 @@
         </div>
         <p class="container hero-note">機能・料金はプランにより異なります。自動再生は端末やブラウザ設定によって制限される場合があります。</p>
       </header>
-      <section class="trust-strip" aria-label="記事情報"><div class="container trust-strip-inner"><p><span>公開日</span><time datetime="2026-09-17">2026年9月17日</time></p><p><span>最終更新日</span><time datetime="2026-09-25">2026年9月25日</time></p><p><span>執筆・監修</span>ジュガード株式会社 / 岡本大輔</p></div></section>
+      <section class="trust-strip" aria-label="記事情報"><div class="container trust-strip-inner"><p><span>公開日</span><time datetime="2026-09-17">2026年9月17日</time></p><p><span>最終更新日</span><time datetime="2026-10-06">2026年10月6日</time></p><p><span>執筆・監修</span>ジュガード株式会社 / 岡本大輔</p></div></section>
 
       <section class="pain section" id="pain-points" aria-labelledby="pain-title"><div class="container"><div class="section-heading"><span class="section-label">01 / THE CHALLENGE</span><h2 id="pain-title">配信の仕組みを、<br>見直すタイミング。</h2><p>動画を増やす前に、コスト・運用・ブランド・保護の4つの課題を整理します。</p></div><ul class="pain-grid">
         <li class="pain-card"><span class="card-number">01</span><h3>配信コストが読めない</h3><p>プラン改定や帯域の追加費用によって、想定よりも年間コストが増えてしまう。</p></li>
@@ -379,6 +397,8 @@
         <article class="strength-item"><span class="strength-index">02</span><div><h3>埋め込みからAPI連携まで</h3><p>管理画面で取得したコードを自社サイトに設置。Next.js、React、WordPressなど、既存の制作環境で実装を検討できます。</p></div><span class="strength-tag">DEVELOPER FIRST</span></article>
         <article class="strength-item"><span class="strength-index">03</span><div><h3>必要な動画保護を組み合わせる</h3><p>DRM、ドメイン制限、署名付きURLなどで不正視聴のリスクを軽減。DRMの追加費用・対応環境は公式ドキュメントで確認してください。すべての複製を防げるものではありません。</p></div><span class="strength-tag">ACCESS CONTROL</span></article>
       </div><div class="checklist-panel"><div><span class="section-label">BEFORE YOU CHOOSE</span><h3>導入判断で揃えたい、5つの確認項目。</h3></div><ul class="check-list"><li>月間視聴量・動画本数・視聴地域</li><li>DRM・署名付きURL・ドメイン制限の必要性</li><li>既存CMSへの埋め込み方式</li><li>プレイヤーのブランドカスタマイズ要件</li><li>構築・運用に確保できる社内リソース</li></ul></div></div></section>
+
+      <section class="media-visuals section" id="media-delivery" aria-labelledby="media-delivery-title"><div class="container"><div class="section-heading"><span class="section-label">03 / MEDIA DELIVERY VISUALS</span><h2 id="media-delivery-title">配信の違いを、<br>画像と動画で確認する。</h2><p>Gumletは動画ストリーミングだけでなく、画像の自動最適化・配信にも対応しています。必要な形式、表示サイズ、配信地域に合わせて、検証条件をそろえてください。</p></div><div class="media-visual-grid"><figure class="media-visual"><img src="/assets/gumlet-image-delivery.webp" width="1184" height="848" loading="lazy" decoding="async" alt="JPEG画像をWebPやAVIFなどの形式に最適化して配信するイメージ"><figcaption><strong>画像の最適化配信</strong><span>用途に応じた形式変換・圧縮・CDN配信の検討イメージです。</span></figcaption></figure><figure class="media-visual"><img src="/assets/gumlet-video-api.webp" width="1280" height="756" loading="lazy" decoding="async" alt="埋め込みプレイヤーと動画APIによるWebサイトへの動画配信実装イメージ"><figcaption><strong>動画APIと埋め込み</strong><span>プレイヤーURLと埋め込みコードを使った実装イメージです。</span></figcaption></figure></div><div class="media-visual-notes"><h3>検証時に見比べるポイント</h3><ul class="check-list"><li>ファーストビューでは、画像・動画の表示領域と遅延読み込みの条件を分けて確認する</li><li>表示形式や圧縮率だけでなく、LCP・CLS・再生開始時間・転送量を実装前後で測定する</li><li>視聴地域・端末・回線により体感は変わるため、実際の閲覧環境で評価する</li></ul></div><p class="media-source">画像出典：<a href="https://www.gumlet.com/" target="_blank" rel="noopener noreferrer">Gumlet公式サイト</a>の公開素材をWebP形式に最適化して掲載しています。UI・料金・仕様は公式情報でご確認ください。</p></div></section>
 
       <section class="comparison section" id="comparison" aria-labelledby="comparison-title"><div class="container"><div class="comparison-intro"><span class="section-label">03 / PLATFORM COMPARISON</span><h2 id="comparison-title">月額だけでなく、<br>運用まで含めて比較する。</h2><p>同条件での速度・料金の実測結果ではありません。請求周期・地域・利用枠を揃えて判断してください。Gumletが常に最安になることを保証するものではありません。</p></div><p class="scroll-hint">スマートフォンでは表を左右にスワイプできます。</p><section class="table-scroll" aria-label="動画配信サービス比較表" tabindex="0"><table class="comparison-table"><caption>Vimeo・AWS独自構築・Gumletの料金と実装条件</caption><thead><tr><th scope="col">比較項目</th><th scope="col">Vimeo</th><th scope="col">AWS 独自構築<small>S3 + CloudFront</small></th><th scope="col" class="gumlet-cell">Gumlet<small>動画配信に特化</small></th></tr></thead><tbody>
         <tr><th scope="row">初期導入工数</th><td><strong>設定・移行</strong><small>動画とプレイヤー設定を移行</small></td><td><strong>設計・構築</strong><small>配信・保護・監視を個別に構成</small></td><td class="gumlet-cell"><strong>アップロードから開始</strong><small>管理画面と埋め込みコードを利用</small></td></tr>
