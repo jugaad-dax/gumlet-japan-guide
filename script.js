@@ -31,4 +31,27 @@
   window.matchMedia('(min-width: 801px)').addEventListener('change', (event) => {
     if (event.matches) setMenuOpen(false);
   });
+
+  const stickyCta = document.querySelector('#mobile-sticky-cta');
+  const stickyCtaLink = stickyCta?.querySelector('a');
+  const hero = document.querySelector('.hero');
+  const mobileViewport = window.matchMedia('(max-width: 800px)');
+  let heroVisible = true;
+
+  const syncStickyCta = () => {
+    const show = mobileViewport.matches && !heroVisible;
+    stickyCta?.classList.toggle('is-visible', show);
+    stickyCta?.setAttribute('aria-hidden', String(!show));
+    if (stickyCtaLink) stickyCtaLink.tabIndex = show ? 0 : -1;
+  };
+
+  if (stickyCta && hero && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      syncStickyCta();
+    }, { threshold: 0.08 });
+    observer.observe(hero);
+    mobileViewport.addEventListener('change', syncStickyCta);
+    syncStickyCta();
+  }
 })();

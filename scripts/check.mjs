@@ -27,7 +27,7 @@ const routes = [
 assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n');
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
 assert(html.includes('<title>Gumlet日本語ガイド｜動画・画像最適化でWeb表示高速化</title>'));
-assert(html.includes('meta http-equiv="last-modified" content="2026-10-06T00:00:00+09:00"'));
+assert(html.includes('meta http-equiv="last-modified" content="2026-10-08T00:00:00+09:00"'));
 assert(html.includes('<meta property="og:type" content="website">'));
 assert(html.includes('<meta property="og:image" content="https://site-speedup.com/assets/og-image.png">'));
 assert(html.includes('<meta name="twitter:image" content="https://site-speedup.com/assets/og-image.png">'));
@@ -49,30 +49,53 @@ assert(html.includes('https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593'
 for (const url of ['https://www.gumlet.com/pricing/', 'https://vimeo.com/pricing', 'https://aws.amazon.com/cloudfront/pricing/', 'https://aws.amazon.com/s3/pricing/', 'https://docs.gumlet.com/', 'https://jugaad.tokyo/']) assert(html.includes(url), url);
 for (const navUrl of ['/vimeo-alternative/', '/pricing/', '/guide/embed/']) assert(html.split(navUrl).length - 1 >= 2, navUrl);
 for (const term of ['神奈川県三浦市南下浦町上宮田3202番14の509', 'okamoto@jugaad.tokyo', 'MVM戦略策定・SaaS選定／導入支援・AI駆動Web実装・広告初期検証']) assert(html.includes(term), term);
-for (const date of ['2026-10-06', '2026-10-06T00:00:00+09:00']) assert(html.includes(date), date);
+for (const date of ['2026-10-08', '2026-10-08T00:00:00+09:00']) assert(html.includes(date), date);
 for (const url of affiliate) {
   const anchors = [...html.matchAll(new RegExp(`<a\\b[^>]*href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`, 'g'))];
   assert(anchors.length > 0, url);
-  anchors.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); const validRel = anchor.includes('rel="sponsored noopener"') || (url === 'https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593' && anchor.includes('rel="noopener noreferrer"')); assert(validRel); });
+  anchors.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); assert(anchor.includes('rel="noopener noreferrer sponsored"')); });
 }
+const expectedAffiliateCounts = new Map([
+  ['https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593', 13],
+  ['https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593', 5],
+  ['https://www.gumlet.com/analyzer?fpr=daisuke-okamoto-0d1593', 2],
+]);
+for (const [url, expected] of expectedAffiliateCounts) {
+  const actual = routes.map(route => text(route.file)).join('').split(`href="${url}"`).length - 1;
+  assert.equal(actual, expected, `affiliate URL count changed: ${url}`);
+}
+assert(html.includes('id="mobile-sticky-cta"'));
+assert(html.includes('全プラン20%OFF適用中'));
+assert(html.includes('月間1,000時間再生・帯域500GB時の'));
+assert(html.includes('class="recommendation-ribbon">おすすめ</span>'));
+assert(html.includes('まずは無料で試す（20%OFF特典付き）'));
+assert(html.includes('プラン一覧・料金を比較する（公式）'));
+assert(html.includes('1分で完了・クレジットカード不要で試す'));
+assert(css.includes('--cta: #059669'));
+assert(css.includes('.mobile-sticky-cta'));
+assert(css.includes('backdrop-filter: blur(12px)'));
+assert(css.includes('grid-row: 2'));
+assert(css.includes('grid-row: 3'));
+assert(text('script.js').includes('IntersectionObserver'));
+assert(!text('script.js').match(/https?:\/\//));
 const inline = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 assert(headers.includes(`sha256-${createHash('sha256').update(inline).digest('base64')}`));
-for (const directive of ['/_astro/*', '/_next/static/*', '/assets/*', 'Cache-Control: public, max-age=0, must-revalidate', 'Strict-Transport-Security: max-age=31536000; includeSubDomains', 'X-Content-Type-Options: nosniff', 'Last-Modified: Mon, 06 Oct 2026 00:00:00 GMT']) assert(headers.includes(directive), directive);
+for (const directive of ['/_astro/*', '/_next/static/*', '/assets/*', 'Cache-Control: public, max-age=0, must-revalidate', 'Strict-Transport-Security: max-age=31536000; includeSubDomains', 'X-Content-Type-Options: nosniff', 'Last-Modified: Thu, 08 Oct 2026 00:00:00 GMT']) assert(headers.includes(directive), directive);
 for (const route of routes) {
   assert(existsSync(path.join(root, route.file)), route.file);
   const page = text(route.file);
   assert(page.includes(`<link rel="canonical" href="${route.url}">`), route.url);
-  const pageDate = route.file === 'index.html' ? '2026-10-06' : '2026-09-25';
+  const pageDate = route.file === 'index.html' ? '2026-10-08' : '2026-09-25';
   assert(page.includes(pageDate), route.file);
-  assert(page.includes('PR</strong><span>本ページはプロモーション・アフィリエイト広告を含みます。'), route.file);
+  assert(page.includes('PR / 公式紹介リンク</strong><span>当サイトはGumlet公式パートナーとして正規の紹介リンク（アフィリエイト広告）を含んでおり、本ページ経由で全有料プラン20%OFFが自動適用されます。</span>'), route.file);
   assert(page.includes('神奈川県三浦市南下浦町上宮田3202番14の509'), route.file);
   assert(page.includes('https://site-speedup.com/#organization'), route.file);
   const pageAffiliate = [...page.matchAll(/<a\b[^>]*href="https:\/\/www\.gumlet\.com\/(?:\?fpr|pricing\?fpr|analyzer\?fpr)[^"]*"[^>]*>/g)];
-  pageAffiliate.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); const validRel = anchor.includes('rel="sponsored noopener"') || (anchor.includes('href="https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593"') && anchor.includes('rel="noopener noreferrer"')); assert(validRel); });
+  pageAffiliate.forEach(([anchor]) => { assert(anchor.includes('target="_blank"')); assert(anchor.includes('rel="noopener noreferrer sponsored"')); });
   assert(sitemap.includes(`<loc>${route.url}</loc>`), route.url);
 }
-for (const term of ['https://site-speedup.com/vimeo-alternative/', 'https://site-speedup.com/pricing/', 'https://site-speedup.com/guide/embed/', '最終更新日: 2026-10-06', 'WebP形式', 'スマートフォンで横スクロール']) assert(llms.includes(term), term);
-assert.equal((sitemap.match(/<lastmod>2026-10-06<\/lastmod>/g) || []).length, 1);
+for (const term of ['https://site-speedup.com/vimeo-alternative/', 'https://site-speedup.com/pricing/', 'https://site-speedup.com/guide/embed/', '最終更新日: 2026-10-08', 'WebP形式', 'スマートフォンで横スクロール']) assert(llms.includes(term), term);
+assert.equal((sitemap.match(/<lastmod>2026-10-08<\/lastmod>/g) || []).length, 1);
 assert.equal((sitemap.match(/<lastmod>2026-09-25<\/lastmod>/g) || []).length, 3);
 for (const name of ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/og-image.png', 'assets/gumlet-image-delivery.webp', 'assets/gumlet-video-api.webp', 'llms.txt', 'robots.txt', 'sitemap.xml', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/embed/index.html']) assert(existsSync(path.join(root, name)), name);
 assert(!existsSync(path.join(root, 'assets/gumlet-speed-architecture.webp')));
