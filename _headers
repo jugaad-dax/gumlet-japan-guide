@@ -5,7 +5,7 @@
   X-Frame-Options: SAMEORIGIN
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: public, max-age=0, must-revalidate
-  Last-Modified: Sun, 11 Oct 2026 00:00:00 GMT
+  Last-Modified: Tue, 13 Oct 2026 00:00:00 GMT
   Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.googletagmanager.com 'sha256-FjxDspzdPSQZ9bIpon1n3/3Wn6TAr3JNf98e7eiiisc='; img-src 'self' data: https:; frame-src https://play.gumlet.io; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
 
 /_astro/*

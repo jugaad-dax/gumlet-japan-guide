@@ -455,3 +455,56 @@ h1 span { color: var(--accent); font-size: 1.18em; letter-spacing: -.06em; }
   .mobile-sticky-cta .button { padding-inline: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { .mobile-sticky-cta { transition: none; } }
+
+
+/* Guide library and long-form article layout */
+.article-layout { display: grid; grid-template-columns: minmax(180px, .28fr) minmax(0, 1fr); gap: clamp(38px, 6vw, 84px); align-items: start; padding-block: 58px 78px; }
+.article-toc { position: sticky; top: 112px; padding: 18px 0 18px 18px; border-left: 2px solid var(--line); }
+.article-toc p { margin: 0 0 11px; color: var(--subtle); font-family: var(--mono); font-size: 10px; font-weight: 650; letter-spacing: .08em; }
+.article-toc ol { display: grid; gap: 7px; list-style: none; }
+.article-toc a { color: var(--muted); font-size: 12px; line-height: 1.65; }
+.article-toc a:hover { color: var(--accent); }
+.article-content { min-width: 0; }
+.article-content .article-section { padding: 0 0 44px; margin: 0 0 48px; border-bottom: 1px solid var(--line); }
+.article-content .article-section--first { padding-top: 0; }
+.article-content .article-section > h2 { max-width: 790px; margin-bottom: 20px; font-size: clamp(26px, 3vw, 34px); }
+.article-content .article-section h3 { margin: 39px 0 13px; font-size: 21px; }
+.article-content .article-section h4 { margin: 30px 0 12px; font-size: 16px; }
+.article-content .article-section > p, .article-content .article-section li { max-width: 820px; color: var(--muted); font-size: 14px; }
+.article-content .article-section strong { color: var(--ink); }
+.article-content .article-section .inline-link { min-height: auto; font-size: inherit; }
+.article-content .table-scroll { margin: 18px 0 28px; }
+.article-content .article-table { min-width: 860px; }
+.article-content .article-table th, .article-content .article-table td { padding: 16px; font-size: 12px; }
+.article-content .article-table tr > :first-child { width: 22%; }
+.article-list { display: grid; gap: 11px; max-width: 820px; margin: 18px 0 0; padding-left: 23px; }
+.article-list ul { display: grid; gap: 5px; margin-top: 9px; padding-left: 20px; }
+.article-lead { max-width: 850px; margin: 0; padding: 22px 24px; border-left: 3px solid var(--cta); background: var(--surface); color: var(--ink) !important; font-size: 15px !important; line-height: 1.9; }
+.related-guides { padding: 0; margin-top: 52px; }
+.related-guides > h2 { margin-bottom: 20px; font-size: 25px; }
+.related-guides .article-grid h3 a, .guide-card h2 a { color: var(--ink); }
+.related-guides .article-grid h3 a:hover, .guide-card h2 a:hover { color: var(--accent); }
+.guide-hub { border-bottom: 1px solid var(--line); }
+.guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.guide-card { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.guide-card-type { color: var(--subtle); font-family: var(--mono); font-size: 10px; font-weight: 650; letter-spacing: .06em; }
+.guide-card h2 { margin: 22px 0 12px; font-size: 21px; }
+.guide-card p { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+.guide-card .inline-link { margin-top: auto; }
+@media (max-width: 800px) {
+  .article-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 36px 60px; }
+  .article-toc { position: static; padding: 17px 18px; border: 1px solid var(--line); border-left: 3px solid var(--cta); border-radius: 7px; background: var(--surface); }
+  .article-toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+  .article-content .article-section { padding-bottom: 35px; margin-bottom: 38px; }
+  .guide-card-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 500px) {
+  .article-toc ol { grid-template-columns: minmax(0, 1fr); }
+  .article-content .article-section > h2 { font-size: 25px; }
+  .article-content .article-section h3 { margin-top: 30px; font-size: 19px; }
+  .article-content .article-section > p, .article-content .article-section li { font-size: 13px; }
+  .article-content .article-table { min-width: 720px; }
+  .article-content .article-table th, .article-content .article-table td { padding: 14px; font-size: 11px; }
+  .article-lead { padding: 18px; font-size: 14px !important; }
+  .guide-card { padding: 22px; }
+}

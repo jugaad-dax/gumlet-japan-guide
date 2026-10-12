@@ -12,7 +12,7 @@ const out = path.join(root, 'dist');
 
 const files = ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/og-image.png', 'assets/gumlet-image-delivery.webp', 'assets/gumlet-video-api.webp', 'llms.txt', 'robots.txt', 'sitemap.xml'];
 
-const pages = ['vimeo-alternative/index.html', 'pricing/index.html', 'guide/embed/index.html'];
+const pages = ['vimeo-alternative/index.html', 'pricing/index.html', 'guide/index.html', 'guide/embed/index.html', 'guide/paid-plan/index.html', 'guide/vimeo-migration/index.html'];
 
 rmSync(out, { recursive: true, force: true });
 
@@ -31,7 +31,6 @@ for (const file of [...files, ...pages]) {
 const built = [...files, ...pages];
 
 console.log(`Static build complete: ${built.length} files in dist/ (${built.reduce((sum, file) => sum + statSync(path.join(out, file)).size, 0)} bytes).`);
-
 
 
 

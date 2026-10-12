@@ -16,6 +16,9 @@
 - [Vimeo代替ガイド](https://site-speedup.com/vimeo-alternative/) — Vimeo、AWS独自構築、Gumletを、料金・保護・導入工数の観点で比較します。
 - [料金ガイド](https://site-speedup.com/pricing/) — プラン、利用枠、超過料金、全有料プラン20%OFF特典の確認手順をまとめます。
 - [高速埋め込み・DRM設定ガイド](https://site-speedup.com/guide/embed/) — レスポンシブiframe、遅延読み込み、Core Web Vitals、DRM・ドメイン制限の実装観点を解説します。
+- [実装・運用ガイド一覧](https://site-speedup.com/guide/) — 画像CDN、有料プラン、Vimeo移行、動画埋め込みの目的別ガイドを案内します。
+- [有料プラン導入・運用完全ガイド](https://site-speedup.com/guide/paid-plan/) — Image CDNと動画配信のプラン比較、Sources設定、カスタムドメイン、URLパラメータ、WordPress連携を解説します。
+- [VimeoからGumletへ動画をインポートする完全移行ガイド](https://site-speedup.com/guide/vimeo-migration/) — クラウド間の直接移行、移行データ、既存埋め込みURLのドメイン差し替えを解説します。
 
 ## Gumletで検討できること
 
@@ -39,5 +42,5 @@ Gumletは動画の保存、トランスコード、ストリーミング、埋�
 
 ## 更新情報
 
-- 最終更新日: 2026-10-11
+- 最終更新日: 2026-10-13
 - 本ファイル: https://site-speedup.com/llms.txt
