@@ -19,7 +19,7 @@ const affiliateUrls = new Set([basicAffiliateUrl, pricingAffiliateUrl]);
 const gaSnippet = `<!-- Google tag (gtag.js) -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5"></script>`;
-const cspMeta = `<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net; connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://www.googletagmanager.com https://*.google.com https://www.google.com https://*.doubleclick.net https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.googleadservices.com https://www.googleadservices.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:">`;
+const cspMeta = `<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://static.cloudflareinsights.com; connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://www.googletagmanager.com https://*.google.com https://www.google.com https://*.doubleclick.net https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.googleadservices.com https://www.googleadservices.com https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:">`;
 const routes = [
   { file: 'index.html', url: 'https://site-speedup.com/' },
   { file: 'vimeo-alternative/index.html', url: 'https://site-speedup.com/vimeo-alternative/' },
@@ -109,10 +109,11 @@ for (const directive of [
   'Cache-Control: public, max-age=0, must-revalidate',
   'Strict-Transport-Security: max-age=31536000; includeSubDomains',
   'X-Content-Type-Options: nosniff',
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://static.cloudflareinsights.com",
   'https://analytics.google.com',
   'https://stats.g.doubleclick.net',
   'https://www.googleadservices.com',
+  'https://cloudflareinsights.com',
   'Last-Modified: Fri, 17 Oct 2026 00:00:00 GMT',
 ]) assert(headers.includes(directive), directive);
 for (const selector of ['--cta: #059669', '.mobile-sticky-cta', '.hero-savings-badge', '.hero-value-list', '.bandwidth-grid', '.discount-table', 'overflow-x: auto', 'overflow-x: clip', '-webkit-overflow-scrolling: touch']) assert(css.includes(selector), selector);
