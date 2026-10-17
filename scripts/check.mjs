@@ -1,5 +1,4 @@
 import { readFileSync, existsSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -20,6 +19,7 @@ const affiliateUrls = new Set([basicAffiliateUrl, pricingAffiliateUrl]);
 const gaSnippet = `<!-- Google tag (gtag.js) -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5"></script>`;
+const cspMeta = `<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net; connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://www.googletagmanager.com https://*.google.com https://www.google.com https://*.doubleclick.net https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.googleadservices.com https://www.googleadservices.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:">`;
 const routes = [
   { file: 'index.html', url: 'https://site-speedup.com/' },
   { file: 'vimeo-alternative/index.html', url: 'https://site-speedup.com/vimeo-alternative/' },
@@ -73,7 +73,8 @@ for (const { file, url } of routes) {
   assert(page.includes(`<link rel="canonical" href="${url}">`), `${file}: canonical`);
   assert(page.includes('2026-10-17'), `${file}: modified date`);
   assert(page.startsWith('<!DOCTYPE html>'), `${file}: doctype`);
-  assert(page.includes(`<head>\n${gaSnippet}`), `${file}: unified GA tag placement`);
+  assert(page.includes(`<head>\n${cspMeta}\n${gaSnippet}`), `${file}: CSP and unified GA tag placement`);
+  assert.equal((page.match(/<meta http-equiv="Content-Security-Policy"/g) || []).length, 1, `${file}: CSP meta count`);
   assert.equal((page.match(/googletagmanager\.com\/gtag\/js\?id=G-9KJF5ZSXY5/g) || []).length, 1, `${file}: tag loader count`);
   assert.equal((page.match(/gtag\('config', 'G-9KJF5ZSXY5'\);/g) || []).length, 1, `${file}: GA4 config count`);
   assert.equal((page.match(/gtag\('config', 'G-8NDNNMSRBX'\);/g) || []).length, 1, `${file}: Ads config count`);
@@ -104,13 +105,14 @@ for (const term of ["event_category: 'outbound'", 'event_label: link.href', 'lin
 assert(script.includes('IntersectionObserver'));
 assert(!script.match(/https?:\/\//));
 
-const inline = html.match(/<script>([\s\S]*?)<\/script>/)[1];
-assert(headers.includes(`sha256-${createHash('sha256').update(inline).digest('base64')}`));
 for (const directive of [
   'Cache-Control: public, max-age=0, must-revalidate',
   'Strict-Transport-Security: max-age=31536000; includeSubDomains',
   'X-Content-Type-Options: nosniff',
-  'https://www.googletagmanager.com',
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net",
+  'https://analytics.google.com',
+  'https://stats.g.doubleclick.net',
+  'https://www.googleadservices.com',
   'Last-Modified: Fri, 17 Oct 2026 00:00:00 GMT',
 ]) assert(headers.includes(directive), directive);
 for (const selector of ['--cta: #059669', '.mobile-sticky-cta', '.hero-savings-badge', '.hero-value-list', '.bandwidth-grid', '.discount-table', 'overflow-x: auto', 'overflow-x: clip', '-webkit-overflow-scrolling: touch']) assert(css.includes(selector), selector);
@@ -122,4 +124,4 @@ for (const asset of [
 ]) assert(existsSync(path.join(root, asset)), asset);
 assert(!existsSync(path.join(root, 'assets/gumlet-speed-architecture.webp')));
 
-console.log('PASS: Google tag/Ads integration, affiliate event tracking, two-link routing, SEO/FAQ JSON-LD, legal disclosures, and Core Web Vitals safeguards.');
+console.log('PASS: CSP Google allowlist, Google tag/Ads integration, affiliate event tracking, two-link routing, SEO/FAQ JSON-LD, legal disclosures, and Core Web Vitals safeguards.');
