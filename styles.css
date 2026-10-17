@@ -508,3 +508,31 @@ h1 span { color: var(--accent); font-size: 1.18em; letter-spacing: -.06em; }
   .article-lead { padding: 18px; font-size: 14px !important; }
   .guide-card { padding: 22px; }
 }
+
+/* GA/SEO conversion content: hero proof, pricing conditions, and comparison detail */
+.button-secondary { color: var(--ink); border-color: var(--line); background: var(--paper); }
+.button-secondary:hover { border-color: var(--cta); color: #047857; background: var(--cta-tint); }
+.hero-savings-badge { max-width: 520px; margin: 0 0 19px; padding: 10px 13px; border: 1px solid #bbf7d0; border-radius: 6px; background: var(--cta-tint); color: #047857; font-size: 13px; font-weight: 750; line-height: 1.65; }
+.hero-value-list { display: grid; gap: 9px; max-width: 530px; margin: 0; list-style: none; }
+.hero-value-list li { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 9px; align-items: start; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.hero-value-list li > span { color: var(--cta); font-family: var(--mono); font-size: 10px; font-weight: 700; line-height: 1.9; }
+.hero-value-list strong { display: block; color: var(--ink); font-size: 12px; }
+.hero-value-list p { margin: 1px 0 0; }
+.bandwidth-explainer, .discount-explainer { border-top: 1px solid var(--line); }
+.bandwidth-explainer { background: var(--surface); }
+.bandwidth-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.bandwidth-grid article { padding: 24px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+.bandwidth-grid h3 { margin-bottom: 10px; font-size: 17px; }
+.bandwidth-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
+.cost-action { margin-top: 24px; }
+.discount-table { min-width: 880px; }
+.discount-table tbody th { color: var(--ink); }
+@media (max-width: 800px) {
+  .hero-value-list { max-width: none; }
+  .bandwidth-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 500px) {
+  .hero-savings-badge { padding: 9px 11px; font-size: 12px; }
+  .hero-value-list li, .hero-value-list strong { font-size: 11px; }
+  .bandwidth-grid article { padding: 20px; }
+}

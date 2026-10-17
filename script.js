@@ -32,16 +32,17 @@
     if (event.matches) setMenuOpen(false);
   });
 
-  document.querySelectorAll('a[data-gumlet-affiliate="true"]').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'gumlet_affiliate_click', {
-          event_category: 'affiliate',
-          event_label: 'gumlet',
-          transport_type: 'beacon',
-        });
-      }
-    });
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href*="gumlet.com"]');
+    if (link && typeof window.gtag === 'function') {
+      window.gtag('event', 'affiliate_click', {
+        event_category: 'outbound',
+        event_label: link.href,
+        link_url: link.href,
+        link_text: (link.innerText || '').trim().slice(0, 50),
+        transport_type: 'beacon',
+      });
+    }
   });
 
   const stickyCta = document.querySelector('#mobile-sticky-cta');
