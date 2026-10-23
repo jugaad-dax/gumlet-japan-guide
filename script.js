@@ -33,7 +33,7 @@
   });
 
   document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href*="gumlet.com"]');
+    const link = event.target.closest('a[data-gumlet-affiliate="true"][href*="gumlet.com"]');
     if (link && typeof window.gtag === 'function') {
       window.gtag('event', 'affiliate_click', {
         event_category: 'outbound',

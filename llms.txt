@@ -1,35 +1,42 @@
-# site-speedup.com | Gumlet（ガムレット）導入・日本語ガイド
+# site-speedup.com | Gumlet（ガムレット）導入・比較・実装の日本語ガイド
 
-> site-speedup.com は、動画・画像最適化、動画配信、動画保護を検討する日本のサイト運営者向けに、Gumletの機能、実装方法、料金比較の観点を整理するガイドです。本ページはプロモーション・アフィリエイト広告を含みます。
+> site-speedup.com は、Gumletの動画配信・画像最適化・動画保護を検討する日本のWeb担当者、制作者、エンジニア向けの情報サイトです。Vimeoとの料金・帯域比較、移行手順、埋め込み実装、Image CDN、DRMを、一次情報の確認を前提に解説します。本サイトにはプロモーション・アフィリエイト広告が含まれます。
 
-## 運営会社
+## サイト構造と主要ページ
 
-- 会社名: ジュガード株式会社（Jugaad Inc.）
-- 所在地: 神奈川県三浦市南下浦町上宮田3202番14の509
-- 代表取締役: 岡本大輔
-- 連絡先: okamoto@jugaad.tokyo
-- 事業内容: MVM戦略策定・SaaS選定／導入支援・AI駆動Web実装・広告初期検証
+- [Vimeoの料金・帯域制限対策とGumlet導入ガイド](https://site-speedup.com/)
+  Vimeoの料金プラン、帯域幅、値上げ・上限条件をGumletやAWS構成と比較します。
+  年払いと紹介特典の適用条件、動画保護、導入3ステップ、関連ガイドへの入口を掲載しています。
 
-## 主要ページ
+- [Vimeoからの乗り換え・値上げ対策ガイド](https://site-speedup.com/vimeo-alternative/)
+  Vimeo、AWS独自構築、Gumletを料金、帯域、DRM、導入工数の観点で比較します。
+  Vimeo移行を検討する際の確認事項と、関連する料金・保護・移行ガイドを案内します。
 
-- [トップ：動画・画像最適化とGumlet導入ガイド](https://site-speedup.com/) — Web表示高速化とCore Web Vitalsを意識した動画・画像最適化、動画配信比較、プレイヤー例、WebP形式の説明画像を案内します。
-- [Vimeo代替ガイド](https://site-speedup.com/vimeo-alternative/) — Vimeo、AWS独自構築、Gumletを、料金・保護・導入工数の観点で比較します。
-- [料金ガイド](https://site-speedup.com/pricing/) — プラン、利用枠、超過料金、全有料プラン20%OFF特典の確認手順をまとめます。
-- [高速埋め込み・DRM設定ガイド](https://site-speedup.com/guide/embed/) — レスポンシブiframe、遅延読み込み、Core Web Vitals、DRM・ドメイン制限の実装観点を解説します。
-- [実装・運用ガイド一覧](https://site-speedup.com/guide/) — 画像CDN、有料プラン、Vimeo移行、動画埋め込みの目的別ガイドを案内します。
-- [有料プラン導入・運用完全ガイド](https://site-speedup.com/guide/paid-plan/) — Image CDNと動画配信のプラン比較、Sources設定、カスタムドメイン、URLパラメータ、WordPress連携を解説します。
-- [VimeoからGumletへ動画をインポートする完全移行ガイド](https://site-speedup.com/guide/vimeo-migration/) — クラウド間の直接移行、移行データ、既存埋め込みURLのドメイン差し替えを解説します。
+- [Gumletの料金プラン解説と費用シミュレーション](https://site-speedup.com/pricing/)
+  Gumletの料金プラン、利用枠、帯域幅、超過従量課金、保護オプションを整理します。
+  Vimeoとのコスト比較に必要な前提と、紹介特典の適用条件を確認できます。
 
-## Gumletで検討できること
+- [Gumlet 実装・運用ガイド一覧](https://site-speedup.com/guide/)
+  Image CDN、有料プラン、動画埋め込み・DRM、Vimeo移行の目的別ガイドを集約しています。
+  導入前の比較ページと、各実装テーマへの入口を提供します。
 
-Gumletは動画の保存、トランスコード、ストリーミング、埋め込みプレイヤーと、画像最適化配信を提供します。動画保護では、ドメイン制限、署名付きURL、DRM、動的ウォーターマークなどを用途に応じて検討します。すべての録画・複製を完全に防止するものではありません。
+- [自社サイトへの高速動画埋め込み・DRM設定ガイド](https://site-speedup.com/guide/embed/)
+  HLSアダプティブストリーミング、レスポンシブiframe、遅延読み込み、動画プレイヤーの実装を扱います。
+  DRM（Widevine / FairPlay）、署名付きURL、ドメイン制限など動画のダウンロード防止策も解説します。
 
-画像・動画最適化の効果は、既存実装、読み込み順序、画像サイズ、ネットワーク条件で変わります。実装前後にLCP、CLS、INP、転送量、再生開始時間を測定してください。
+- [Gumlet 有料プラン導入・運用完全ガイド](https://site-speedup.com/guide/paid-plan/)
+  Image CDNのSources設定、カスタムドメイン、画像URLパラメータ、WordPress連携を解説します。
+  動画配信・DRM・コスト管理・継続運用を含む、導入実務向けの技術ガイドです。
 
-## コンテンツ構造・画像
+- [VimeoからGumletへ動画をインポートする完全移行ガイド](https://site-speedup.com/guide/vimeo-migration/)
+  Vimeo動画の一括インポート、移行対象データ、処理設定、既存の埋め込みコード差し替えを5ステップで整理します。
+  ローカルダウンロードを挟まないクラウド間移行と、移行後に再設定が必要な項目を説明します。
 
-- トップページは課題整理、機能比較表、3つの実際のGumlet埋め込みプレイヤー、画像・動画配信の説明画像、導入事例、クイックスタート、FAQ、著者・運営者情報で構成されています。
-- 説明画像はWebP形式で、`width`・`height`・`alt`・`loading="lazy"`を指定しています。比較表はスマートフォンで横スクロールでき、動画プレイヤーは16:9のレスポンシブiframeです。
+## 計測・導線の方針
+
+- Gumlet公式への紹介リンクは、外部リンクとして`data-gumlet-affiliate="true"`を持ち、GA4の`affiliate_click`イベントの対象です。
+- この一覧で示すsite-speedup.com内のリンクは通常の同一タブ内部リンクであり、アフィリエイトイベントの対象ではありません。
+- 料金、プラン、帯域、DRM、移行機能、特典の対象条件は変動するため、最終判断前にGumlet公式情報を確認してください。
 
 ## 一次情報
 
@@ -38,13 +45,9 @@ Gumletは動画の保存、トランスコード、ストリーミング、埋�
 - Gumlet公式ドキュメント: https://docs.gumlet.com/
 - Vimeo公式料金: https://vimeo.com/pricing
 - AWS CloudFront料金: https://aws.amazon.com/cloudfront/pricing/
-- Amazon S3料金: https://aws.amazon.com/s3/pricing/
 
-## 更新情報
+## クローラー向け情報
 
-- 最終更新日: 2026-10-17
+- Sitemap: https://site-speedup.com/sitemap.xml
+- 最終更新日: 2026-10-24
 - 本ファイル: https://site-speedup.com/llms.txt
-
-## 料金・特典の確認
-
-Vimeoの料金・帯域・プランをGumletと比較し、公式年払いの最大35%節約と紹介特典20%OFFが同じ対象価格に順次適用される場合の実質最大48%OFFの計算条件を説明します。対象プラン、適用時期、併用可否は公式料金ページで確認してください。

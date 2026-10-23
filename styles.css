@@ -536,3 +536,19 @@ h1 span { color: var(--accent); font-size: 1.18em; letter-spacing: -.06em; }
   .hero-value-list li, .hero-value-list strong { font-size: 11px; }
   .bandwidth-grid article { padding: 20px; }
 }
+
+
+/* Contextual internal links for the Gumlet topic cluster */
+.topic-callout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr); gap: 24px 36px; align-items: center; max-width: 980px; margin: 32px 0 0; padding: 24px 26px; border: 1px solid #c7d2fe; border-radius: 9px; background: linear-gradient(135deg, #f8fafc 0%, #f5f3ff 100%); }
+.topic-callout .section-label { margin-bottom: 9px; color: #4f46e5; }
+.topic-callout h3 { margin: 0 0 8px; color: var(--ink); font-size: 18px; }
+.topic-callout p { max-width: 620px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.85; }
+.topic-callout-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 52px; padding: 13px 16px; border: 1px solid #a7f3d0; border-radius: 7px; color: #065f46; background: #ecfdf5; font-size: 13px; font-weight: 700; line-height: 1.65; text-decoration: none; }
+.topic-callout-link:hover { border-color: var(--cta); color: #064e3b; background: #d1fae5; }
+.topic-callout-link span { flex: none; color: var(--cta); font-size: 17px; }
+.related-guides.section { border-top: 1px solid var(--line); background: var(--surface); }
+.related-guides.section .article-grid > article { background: var(--paper); }
+.related-guides.section .article-grid h3 a { color: var(--ink); text-decoration: underline; text-decoration-color: #cbd5e1; text-underline-offset: 4px; }
+.related-guides.section .article-grid h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
+@media (max-width: 800px) { .topic-callout { grid-template-columns: minmax(0, 1fr); gap: 17px; margin-top: 24px; padding: 21px; } .topic-callout-link { width: 100%; } }
+@media (max-width: 500px) { .topic-callout { padding: 19px; } .topic-callout h3 { font-size: 17px; } .topic-callout p, .topic-callout-link { font-size: 12px; } }
