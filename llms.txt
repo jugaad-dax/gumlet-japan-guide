@@ -32,6 +32,9 @@
   Vimeo動画の一括インポート、移行対象データ、処理設定、既存の埋め込みコード差し替えを5ステップで整理します。
   ローカルダウンロードを挟まないクラウド間移行と、移行後に再設定が必要な項目を説明します。
 
+- [Vimeo帯域幅超過の対処法](https://site-speedup.com/articles/vimeo-bandwidth-overage-guide)
+  警告通知への初動、公開料金と個別見積りの違い、条件付きの割引計算、乗り換え手順を整理します。
+
 ## 計測・導線の方針
 
 - Gumlet公式への紹介リンクは、外部リンクとして`data-gumlet-affiliate="true"`を持ち、GA4の`affiliate_click`イベントの対象です。
@@ -49,5 +52,5 @@
 ## クローラー向け情報
 
 - Sitemap: https://site-speedup.com/sitemap.xml
-- 最終更新日: 2026-10-24
+- 最終更新日: 2026-11-03
 - 本ファイル: https://site-speedup.com/llms.txt

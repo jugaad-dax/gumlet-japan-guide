@@ -27,9 +27,10 @@ const routes = [
   { file: 'guide/embed/index.html', url: 'https://site-speedup.com/guide/embed/', type: 'TechArticle' },
   { file: 'guide/paid-plan/index.html', url: 'https://site-speedup.com/guide/paid-plan/', type: 'Article' },
   { file: 'guide/vimeo-migration/index.html', url: 'https://site-speedup.com/guide/vimeo-migration/', type: 'Article' },
+  { file: 'articles/vimeo-bandwidth-overage-guide.html', url: 'https://site-speedup.com/articles/vimeo-bandwidth-overage-guide', type: 'Article' },
 ];
 
-assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n');
+assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n/articles/vimeo-bandwidth-overage-guide/ /articles/vimeo-bandwidth-overage-guide 301\n');
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
 assert(html.includes('<meta name="robots" content="index, follow">'));
 assert(html.includes('"@type": "ItemList"'));
@@ -58,14 +59,16 @@ for (const { file, url, type } of routes) {
   const page = text(file);
   assert(existsSync(path.join(root, file)), file);
   assert(page.includes(`<link rel="canonical" href="${url}">`), `${file}: canonical`);
-  assert(page.includes(releaseDate), `${file}: modified date`);
+  const modifiedDate = ['index.html', 'guide/index.html', 'articles/vimeo-bandwidth-overage-guide.html'].includes(file) ? '2026-11-03' : releaseDate;
+  assert(page.includes(modifiedDate), `${file}: modified date`);
   assert(page.startsWith('<!DOCTYPE html>'), `${file}: doctype`);
   assert(page.includes(`<head>\n${cspMeta}\n${gaSnippet}`), `${file}: CSP and GA placement`);
   assert.equal((page.match(/<meta http-equiv="Content-Security-Policy"/g) || []).length, 1, `${file}: CSP meta count`);
   assert.equal((page.match(/googletagmanager\.com\/gtag\/js\?id=G-9KJF5ZSXY5/g) || []).length, 1, `${file}: GA loader count`);
   assert(page.includes('PR / 公式紹介リンク</strong><span>'), `${file}: disclosure`);
   assert(page.includes('https://site-speedup.com/#organization'), `${file}: organization schema`);
-  assert(!page.includes('請求書払い'), `${file}: invoice wording`);
+  if (!file.startsWith('articles/')) assert(!page.includes('請求書払い'), `${file}: invoice wording`);
+  for (const id of ['G-9KJF5ZSXY5', 'G-8NDNNMSRBX']) assert(page.includes(`gtag('config', '${id}')`), `${file}: GA config ${id}`);
   for (const jsonLd of page.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g)) JSON.parse(jsonLd[1]);
   if (type !== 'top') {
     assert(page.includes(`"@type":"${type}"`) || page.includes(`"@type": "${type}"`), `${file}: page schema type`);
@@ -96,10 +99,27 @@ for (const url of routes.map(route => route.url)) assert(llms.includes(url), `ll
 assert(llms.includes('Vimeoとのコスト比較'));
 assert(llms.includes('署名付きURL'));
 assert(llms.includes('WordPress'));
-assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 7, 'seven sitemap URLs');
-assert.equal((sitemap.match(new RegExp(`<lastmod>${releaseDate}<\\/lastmod>`, 'g')) || []).length, 7, 'seven current sitemap dates');
+assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 8, 'eight sitemap URLs');
+assert.equal((sitemap.match(/<lastmod>2026-11-03<\/lastmod>/g) || []).length, 3, 'three updated sitemap dates');
+assert.equal((sitemap.match(new RegExp(`<lastmod>${releaseDate}<\\/lastmod>`, 'g')) || []).length, 5, 'five unchanged sitemap dates');
 for (const bot of ['Googlebot', 'Google-Extended', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot']) assert(robots.includes(`User-agent: ${bot}\nAllow: /`), bot);
 assert(robots.includes('Sitemap: https://site-speedup.com/sitemap.xml'));
-for (const directive of ['Cache-Control: public, max-age=0, must-revalidate', 'https://analytics.google.com', 'https://static.cloudflareinsights.com', 'Last-Modified: Sat, 24 Oct 2026 00:00:00 GMT']) assert(headers.includes(directive), directive);
+for (const directive of ['Cache-Control: public, max-age=0, must-revalidate', 'https://analytics.google.com', 'https://static.cloudflareinsights.com', 'Last-Modified: Tue, 03 Nov 2026 00:00:00 GMT']) assert(headers.includes(directive), directive);
 for (const asset of ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'llms.txt', 'robots.txt', 'sitemap.xml', ...routes.slice(1).map(route => route.file)]) assert(existsSync(path.join(root, asset)), asset);
+const overage = text('articles/vimeo-bandwidth-overage-guide.html');
+assert.equal((overage.match(/<h1>/g) || []).length, 1);
+assert.equal((overage.match(/<h2>/g) || []).length, 4);
+const overageSchema = [...overage.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+const faq = overageSchema.find(node => node['@type'] === 'FAQPage');
+assert.equal(faq.mainEntity.length, 3);
+for (const question of faq.mainEntity) {
+  assert(overage.includes(`<summary>${question.name}</summary>`));
+  assert(overage.includes(`<p>${question.acceptedAnswer.text}</p>`));
+}
+assert.equal((overage.match(/>限定20%OFF特典付きでGumletを無料体験する<\/a>/g) || []).length, 2);
+assert.equal((overage.match(/>Gumletの最新料金プラン詳細（限定割引対象）を見る<\/a>/g) || []).length, 1);
+assert(overage.includes('日本円での請求書払い（銀行振込）の可否'));
+assert(overage.includes('保証する案内ではありません'));
+assert(html.includes('id="helpful-guides"'));
+for (const name of ['index.html', 'guide/index.html']) assert(text(name).includes('href="/articles/vimeo-bandwidth-overage-guide"'));
 console.log('PASS: contextual internal links, reciprocal guide navigation, schema markup, crawler files, affiliate isolation, and static-site safeguards.');
