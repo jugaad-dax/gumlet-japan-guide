@@ -12,7 +12,7 @@ const out = path.join(root, 'dist');
 
 const files = ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/og-image.png', 'assets/gumlet-image-delivery.webp', 'assets/gumlet-video-api.webp', 'llms.txt', 'robots.txt', 'sitemap.xml'];
 
-const pages = ['articles/vimeo-domain-restriction-security.html', 'articles/vimeo-to-gumlet-migration-guide.html', 'articles/vimeo-bandwidth-overage-guide.html', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/index.html', 'guide/embed/index.html', 'guide/paid-plan/index.html', 'guide/vimeo-migration/index.html'];
+const pages = ['articles/wordpress-video-speed-optimization.html', 'articles/gumlet-vs-cloudflare-stream-aws-comparison.html', 'articles/online-course-video-drm-protection.html', 'articles/vimeo-domain-restriction-security.html', 'articles/vimeo-to-gumlet-migration-guide.html', 'articles/vimeo-bandwidth-overage-guide.html', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/index.html', 'guide/embed/index.html', 'guide/paid-plan/index.html', 'guide/vimeo-migration/index.html'];
 
 rmSync(out, { recursive: true, force: true });
 

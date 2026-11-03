@@ -41,6 +41,15 @@
 - [VimeoからGumletへの動画移行マニュアル](https://site-speedup.com/articles/vimeo-to-gumlet-migration-guide)
   動画資産の棚卸しからインポート、埋め込み差し替え、表示速度、段階的な公開切り替えまで実務を整理します。
 
+- [WordPress動画の表示速度・LCP改善](https://site-speedup.com/articles/wordpress-video-speed-optimization)
+  主な対象：LCPとページ初期表示の改善。動画がページ表示に与える負荷を測り、LCP・遅延読み込み・配信方式を改善します。
+
+- [Gumlet・Cloudflare Stream・AWSのインフラ比較](https://site-speedup.com/articles/gumlet-vs-cloudflare-stream-aws-comparison)
+  主な対象：配信インフラの総費用と運用比較。GB・分数課金とエンコード、保護機能、構築・保守工数を同じ条件で比較します。
+
+- [オンライン講座のDRM・動的透かし導入](https://site-speedup.com/articles/online-course-video-drm-protection)
+  主な対象：有料教材のDRMと視聴者別透かし。教材流出のリスクに合わせ、DRMライセンス・動的透かし・会員権限を設計します。
+
 ## 計測・導線の方針
 
 - Gumlet公式への紹介リンクは、外部リンクとして`data-gumlet-affiliate="true"`を持ち、GA4の`affiliate_click`イベントの対象です。

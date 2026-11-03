@@ -30,9 +30,13 @@ const routes = [
   { file: 'articles/vimeo-bandwidth-overage-guide.html', url: 'https://site-speedup.com/articles/vimeo-bandwidth-overage-guide', type: 'Article' },
   { file: 'articles/vimeo-domain-restriction-security.html', url: 'https://site-speedup.com/articles/vimeo-domain-restriction-security', type: 'Article' },
   { file: 'articles/vimeo-to-gumlet-migration-guide.html', url: 'https://site-speedup.com/articles/vimeo-to-gumlet-migration-guide', type: 'Article' },
+  { file: 'articles/wordpress-video-speed-optimization.html', url: 'https://site-speedup.com/articles/wordpress-video-speed-optimization', type: 'Article' },
+  { file: 'articles/gumlet-vs-cloudflare-stream-aws-comparison.html', url: 'https://site-speedup.com/articles/gumlet-vs-cloudflare-stream-aws-comparison', type: 'Article' },
+  { file: 'articles/online-course-video-drm-protection.html', url: 'https://site-speedup.com/articles/online-course-video-drm-protection', type: 'Article' },
 ];
 
-assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n/articles/vimeo-bandwidth-overage-guide/ /articles/vimeo-bandwidth-overage-guide 301\n/articles/vimeo-domain-restriction-security/ /articles/vimeo-domain-restriction-security 301\n/articles/vimeo-to-gumlet-migration-guide/ /articles/vimeo-to-gumlet-migration-guide 301\n');
+const expectedRedirects = 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n' + routes.filter(route => route.file.startsWith('articles/')).map(route => { const pathname = new URL(route.url).pathname; return `${pathname}/ ${pathname} 301\n`; }).join('');
+assert.equal(redirects, expectedRedirects);
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
 assert(html.includes('<meta name="robots" content="index, follow">'));
 assert(html.includes('"@type": "ItemList"'));
@@ -101,8 +105,8 @@ for (const url of routes.map(route => route.url)) assert(llms.includes(url), `ll
 assert(llms.includes('Vimeoとのコスト比較'));
 assert(llms.includes('署名付きURL'));
 assert(llms.includes('WordPress'));
-assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 10, 'ten sitemap URLs');
-assert.equal((sitemap.match(/<lastmod>2026-11-03<\/lastmod>/g) || []).length, 5, 'five updated sitemap dates');
+assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 13, 'thirteen sitemap URLs');
+assert.equal((sitemap.match(/<lastmod>2026-11-03<\/lastmod>/g) || []).length, 8, 'eight updated sitemap dates');
 assert.equal((sitemap.match(new RegExp(`<lastmod>${releaseDate}<\\/lastmod>`, 'g')) || []).length, 5, 'five unchanged sitemap dates');
 for (const bot of ['Googlebot', 'Google-Extended', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot']) assert(robots.includes(`User-agent: ${bot}\nAllow: /`), bot);
 assert(robots.includes('Sitemap: https://site-speedup.com/sitemap.xml'));
@@ -127,6 +131,9 @@ for (const name of ['index.html', 'guide/index.html']) assert(text(name).include
 const newArticles = [
   { slug: 'vimeo-domain-restriction-security', headings: ['会員サイトやオンライン講座で必須の「動画セキュリティ」とは？', 'VimeoとGumletのセキュリティ機能・料金比較', 'Gumletで特定のWebサイト（WordPress等）からのみ再生を許可する設定手順', 'よくある質問（FAQ）'] },
   { slug: 'vimeo-to-gumlet-migration-guide', headings: ['VimeoからGumletへの移行前に確認すべき3つのチェックポイント', '【3ステップ】動画データの移行と初期設定手順', 'Webサイト上の埋め込みコード（iframe）差し替えと表示速度の最適化', 'よくある質問（FAQ）'] },
+  { slug: 'wordpress-video-speed-optimization', headings: ['なぜ動画を載せるとサイトが重くなりSEO評価（LCP）が落ちるのか？', '動画埋め込み方式別の表示速度・帯域コスト比較', 'Gumletで画質を落とさず動画を自動軽量化・高速配信する3ステップ', 'よくある質問（FAQ）'] },
+  { slug: 'gumlet-vs-cloudflare-stream-aws-comparison', headings: ['エンジニア工数と配信コストのジレンマ：動画インフラ選定の落とし穴', '3大プラットフォーム徹底比較表（Gumlet vs Cloudflare Stream vs AWS）', '開発工数を抑え、低コストで高機能を実現するGumletの選び方', 'よくある質問（FAQ）'] },
+  { slug: 'online-course-video-drm-protection', headings: ['「ドメイン制限」だけでは防げない？有料動画コンテンツ流出のリアルな手口', '流出を徹底阻止する3大セキュリティ機能の比較', 'GumletでDRM・動的透かしを組み合わせる手順と費用', 'よくある質問（FAQ）'] },
 ];
 const htmlEscape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
 for (const { slug, headings } of newArticles) {
@@ -153,4 +160,11 @@ for (const { slug, headings } of newArticles) {
   for (const source of ['index.html', 'guide/index.html', 'articles/vimeo-bandwidth-overage-guide.html']) assert(text(source).includes(`href="/articles/${slug}"`), `${source}: link to ${slug}`);
   for (const other of ['vimeo-bandwidth-overage-guide', ...newArticles.map(a => a.slug)].filter(a => a !== slug)) assert(page.includes(`href="/articles/${other}"`), `${slug}: link to ${other}`);
 }
+const hub = text('guide/index.html');
+const hubList = [...hub.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1])).find(n => n['@type'] === 'ItemList');
+assert.equal(hubList.numberOfItems, 9);
+assert.equal(hubList.itemListElement.length, 9);
+assert.equal(new Set(hubList.itemListElement.map(i => i.url)).size, 9);
+const helpfulSection = html.match(/<section class="related-guides section" id="helpful-guides"[\s\S]*?<\/section>/)[0];
+assert.equal(new Set([...helpfulSection.matchAll(/href="(\/articles\/[^\"]+)"/g)].map(m => m[1])).size, 6);
 console.log('PASS: contextual internal links, reciprocal guide navigation, schema markup, crawler files, affiliate isolation, and static-site safeguards.');
