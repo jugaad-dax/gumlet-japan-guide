@@ -35,6 +35,12 @@
 - [Vimeo帯域幅超過の対処法](https://site-speedup.com/articles/vimeo-bandwidth-overage-guide)
   警告通知への初動、公開料金と個別見積りの違い、条件付きの割引計算、乗り換え手順を整理します。
 
+- [会員サイトのドメイン制限・セキュリティ比較](https://site-speedup.com/articles/vimeo-domain-restriction-security)
+  WordPress・オンライン講座のドメイン制限、署名付きURL、透かし、DRMを比較し、設定と検証の手順を解説します。
+
+- [VimeoからGumletへの動画移行マニュアル](https://site-speedup.com/articles/vimeo-to-gumlet-migration-guide)
+  動画資産の棚卸しからインポート、埋め込み差し替え、表示速度、段階的な公開切り替えまで実務を整理します。
+
 ## 計測・導線の方針
 
 - Gumlet公式への紹介リンクは、外部リンクとして`data-gumlet-affiliate="true"`を持ち、GA4の`affiliate_click`イベントの対象です。

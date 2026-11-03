@@ -28,9 +28,11 @@ const routes = [
   { file: 'guide/paid-plan/index.html', url: 'https://site-speedup.com/guide/paid-plan/', type: 'Article' },
   { file: 'guide/vimeo-migration/index.html', url: 'https://site-speedup.com/guide/vimeo-migration/', type: 'Article' },
   { file: 'articles/vimeo-bandwidth-overage-guide.html', url: 'https://site-speedup.com/articles/vimeo-bandwidth-overage-guide', type: 'Article' },
+  { file: 'articles/vimeo-domain-restriction-security.html', url: 'https://site-speedup.com/articles/vimeo-domain-restriction-security', type: 'Article' },
+  { file: 'articles/vimeo-to-gumlet-migration-guide.html', url: 'https://site-speedup.com/articles/vimeo-to-gumlet-migration-guide', type: 'Article' },
 ];
 
-assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n/articles/vimeo-bandwidth-overage-guide/ /articles/vimeo-bandwidth-overage-guide 301\n');
+assert.equal(redirects, 'https://gumlet-japan-guide.pages.dev/* https://site-speedup.com/:splat 301!\n/articles/vimeo-bandwidth-overage-guide/ /articles/vimeo-bandwidth-overage-guide 301\n/articles/vimeo-domain-restriction-security/ /articles/vimeo-domain-restriction-security 301\n/articles/vimeo-to-gumlet-migration-guide/ /articles/vimeo-to-gumlet-migration-guide 301\n');
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
 assert(html.includes('<meta name="robots" content="index, follow">'));
 assert(html.includes('"@type": "ItemList"'));
@@ -59,7 +61,7 @@ for (const { file, url, type } of routes) {
   const page = text(file);
   assert(existsSync(path.join(root, file)), file);
   assert(page.includes(`<link rel="canonical" href="${url}">`), `${file}: canonical`);
-  const modifiedDate = ['index.html', 'guide/index.html', 'articles/vimeo-bandwidth-overage-guide.html'].includes(file) ? '2026-11-03' : releaseDate;
+  const modifiedDate = ['index.html', 'guide/index.html'].includes(file) || file.startsWith('articles/') ? '2026-11-03' : releaseDate;
   assert(page.includes(modifiedDate), `${file}: modified date`);
   assert(page.startsWith('<!DOCTYPE html>'), `${file}: doctype`);
   assert(page.includes(`<head>\n${cspMeta}\n${gaSnippet}`), `${file}: CSP and GA placement`);
@@ -99,8 +101,8 @@ for (const url of routes.map(route => route.url)) assert(llms.includes(url), `ll
 assert(llms.includes('Vimeoとのコスト比較'));
 assert(llms.includes('署名付きURL'));
 assert(llms.includes('WordPress'));
-assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 8, 'eight sitemap URLs');
-assert.equal((sitemap.match(/<lastmod>2026-11-03<\/lastmod>/g) || []).length, 3, 'three updated sitemap dates');
+assert.equal((sitemap.match(/<loc>https:\/\/site-speedup\.com\//g) || []).length, 10, 'ten sitemap URLs');
+assert.equal((sitemap.match(/<lastmod>2026-11-03<\/lastmod>/g) || []).length, 5, 'five updated sitemap dates');
 assert.equal((sitemap.match(new RegExp(`<lastmod>${releaseDate}<\\/lastmod>`, 'g')) || []).length, 5, 'five unchanged sitemap dates');
 for (const bot of ['Googlebot', 'Google-Extended', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot']) assert(robots.includes(`User-agent: ${bot}\nAllow: /`), bot);
 assert(robots.includes('Sitemap: https://site-speedup.com/sitemap.xml'));
@@ -122,4 +124,33 @@ assert(overage.includes('日本円での請求書払い（銀行振込）の可�
 assert(overage.includes('保証する案内ではありません'));
 assert(html.includes('id="helpful-guides"'));
 for (const name of ['index.html', 'guide/index.html']) assert(text(name).includes('href="/articles/vimeo-bandwidth-overage-guide"'));
+const newArticles = [
+  { slug: 'vimeo-domain-restriction-security', headings: ['会員サイトやオンライン講座で必須の「動画セキュリティ」とは？', 'VimeoとGumletのセキュリティ機能・料金比較', 'Gumletで特定のWebサイト（WordPress等）からのみ再生を許可する設定手順', 'よくある質問（FAQ）'] },
+  { slug: 'vimeo-to-gumlet-migration-guide', headings: ['VimeoからGumletへの移行前に確認すべき3つのチェックポイント', '【3ステップ】動画データの移行と初期設定手順', 'Webサイト上の埋め込みコード（iframe）差し替えと表示速度の最適化', 'よくある質問（FAQ）'] },
+];
+const htmlEscape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
+for (const { slug, headings } of newArticles) {
+  const page = text(`articles/${slug}.html`);
+  assert.deepEqual([...page.matchAll(/<h2>(.*?)<\/h2>/g)].map(m => m[1]), headings, `${slug}: exact H2s`);
+  assert.equal((page.match(/<h1>/g) || []).length, 1);
+  assert.equal((page.match(/data-article-cta="/g) || []).length, 3);
+  for (const placement of ['intro', 'comparison', 'summary']) assert(page.includes(`data-article-cta="${placement}"`));
+  assert.equal((page.match(/年払い＋紹介20%OFFで実質最大48%OFF（適用条件あり）/g) || []).length, 3);
+  assert.equal((page.match(/data-gumlet-affiliate="true"/g) || []).length, 5);
+  const nodes = [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  const article = nodes.find(n => n['@type'] === 'Article');
+  const faqNode = nodes.find(n => n['@type'] === 'FAQPage');
+  assert.equal(article.url, `https://site-speedup.com/articles/${slug}`);
+  assert.equal(faqNode.mainEntity.length, 3);
+  for (const q of faqNode.mainEntity) {
+    assert(page.includes(`<summary>${htmlEscape(q.name)}</summary>`));
+    assert(page.includes(`<p>${htmlEscape(q.acceptedAnswer.text)}</p>`));
+  }
+  assert(page.includes('日本円での請求書払い（銀行振込）の可否'));
+  assert(page.includes('保証する案内ではありません'));
+  assert(page.includes('href="https://jugaad.tokyo/privacy/"'));
+  assert(!page.includes('<!-- CTA_'), `${slug}: unresolved CTA marker`);
+  for (const source of ['index.html', 'guide/index.html', 'articles/vimeo-bandwidth-overage-guide.html']) assert(text(source).includes(`href="/articles/${slug}"`), `${source}: link to ${slug}`);
+  for (const other of ['vimeo-bandwidth-overage-guide', ...newArticles.map(a => a.slug)].filter(a => a !== slug)) assert(page.includes(`href="/articles/${other}"`), `${slug}: link to ${other}`);
+}
 console.log('PASS: contextual internal links, reciprocal guide navigation, schema markup, crawler files, affiliate isolation, and static-site safeguards.');
