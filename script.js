@@ -35,13 +35,22 @@
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[data-gumlet-affiliate="true"][href*="gumlet.com"]');
     if (link && typeof window.gtag === 'function') {
+      const context = link.closest('[data-article-cta]');
+      const placement = link.dataset.ctaPlacement || context?.dataset.articleCta ||
+        (link.closest('.site-header') ? 'header' : link.closest('.site-footer') ? 'footer' :
+          link.closest('.hero') ? 'hero' : link.closest('.comparison') ? 'comparison' :
+            link.closest('.final-cta') ? 'final' : 'content');
+      try {
       window.gtag('event', 'affiliate_click', {
         event_category: 'outbound',
         event_label: link.href,
         link_url: link.href,
         link_text: (link.innerText || '').trim().slice(0, 50),
+        cta_placement: placement,
+        content_type: location.pathname.startsWith('/articles/') ? 'article' : location.pathname === '/' ? 'landing' : 'guide',
         transport_type: 'beacon',
       });
+      } catch { /* Analytics must never interrupt native link navigation. */ }
     }
   });
 

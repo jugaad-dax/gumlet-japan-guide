@@ -69,3 +69,15 @@
 - Sitemap: https://site-speedup.com/sitemap.xml
 - 最終更新日: 2026-11-03
 - 本ファイル: https://site-speedup.com/llms.txt
+
+## 2026年11月5日：プラン診断・CRO情報更新
+- 料金診断: https://site-speedup.com/pricing/#cost-calculator （トップページにも同じ診断）。保存動画100〜20,000分、月間帯域100〜10,000GBと必要機能から、参考プランと内訳を表示。氏名・メール・入力した利用量は送信しない。
+- Video年払い月額換算はCreator $6、Growth $19、Business $99。月払いは$9／$29／$149。保存枠1,000／3,000／15,000分、全有料プラン3,000GB/月。超過配信$0.15／$0.10／$0.06 per GB。Business保存超過$3/1,000分/月の比例参考試算（実際の請求単位は未確認）。
+- 紹介20%OFFはVideo基本料にのみ仮定。DRM $99/月、超過料金に割引を適用しない。公開資料で購入者向けの対象・期間・併用を確認できないため、決済前の確認を案内。年払い基本料は一括請求。実質最大48%は年払い約35%と紹介20%を併用できる条件の参考計算であり、全プラン共通や将来継続の保証ではない。
+- CreatorのHLS／DASH対応は料金表にあるが、公式DocsのVideo FAQsはCreatorのHLS／MP4 URL不可と記載。独自プレイヤー／CRM条件のGrowth推奨は保守的な比較候補。署名URLはGrowth以上、動的透かしはBusiness、DRMは有料プラン用$99/月アドオン（10万視聴/月、超過$1/1,000視聴）。
+- Image CDN Growthは別製品・別契約。年払い月額換算$32（年額$384）、月払い$39、300GB/月、超過$0.15/GB。動画Growth $19と混同しない。
+- CTAはCreator以上、フォーム／CRM・AI翻訳・AIチャプターはGrowth以上。AI字幕はクレジットと超過条件を確認。画像最適化プラグインとGumlet Videoプラグインは用途が別。
+- トップには顧客実績ではない3モデルとマーケティング機能カードを追加。UIは概念図で、登録・決済画面の実キャプチャではない。既存デモ4プレイヤーの再生・シークのみ実ブラウザ検証済み。
+- https://site-speedup.com/vimeo-alternative/ にVimeo On Demand終了の構成移行とWistia／Bunny Stream比較を追加。Vimeo On Demandは2026年11月20日終了予定。通常Vimeoホスティング全体の終了とは別。
+- セキュリティと講座DRMの記事にUTAGE／Teachable／Kajabi／Thinkific／WordPress（LearnDash、MemberPress、Simple Membership）の設定観点を追加。Gumletネイティブ連携や進捗同期の実動作確認ではなく、公式仕様に基づく構成案。会員認証と動画の再生認可は別。
+- 全ページの結論ボックスと折りたたみ条件を更新。CSP、GA4の両ID、affiliate_click、記事のcanonicalと相互リンクを維持。計算機の操作はplan_calculator_usedをページ内一度だけ計測し、既存affiliate_clickにcta_placementとcontent_typeを付加。

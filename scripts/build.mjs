@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const out = path.join(root, 'dist');
 
-const files = ['index.html', 'styles.css', 'script.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/og-image.png', 'assets/gumlet-image-delivery.webp', 'assets/gumlet-video-api.webp', 'llms.txt', 'robots.txt', 'sitemap.xml'];
+const files = ['index.html', 'styles.css', 'script.js', 'pricing-data.js', 'calculator.js', '_headers', '_redirects', 'favicon.svg', 'og-image.svg', 'og-image.png', 'assets/og-image.png', 'assets/gumlet-image-delivery.webp', 'assets/gumlet-video-api.webp', 'llms.txt', 'robots.txt', 'sitemap.xml'];
 
 const pages = ['articles/wordpress-video-speed-optimization.html', 'articles/gumlet-vs-cloudflare-stream-aws-comparison.html', 'articles/online-course-video-drm-protection.html', 'articles/vimeo-domain-restriction-security.html', 'articles/vimeo-to-gumlet-migration-guide.html', 'articles/vimeo-bandwidth-overage-guide.html', 'vimeo-alternative/index.html', 'pricing/index.html', 'guide/index.html', 'guide/embed/index.html', 'guide/paid-plan/index.html', 'guide/vimeo-migration/index.html'];
 
@@ -31,7 +31,6 @@ for (const file of [...files, ...pages]) {
 const built = [...files, ...pages];
 
 console.log(`Static build complete: ${built.length} files in dist/ (${built.reduce((sum, file) => sum + statSync(path.join(out, file)).size, 0)} bytes).`);
-
 
 
 

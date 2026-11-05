@@ -1,0 +1,116 @@
+<!-- Insert exactly once per page, on / and /pricing only. Keep the ordered classic defer scripts below; do not duplicate them elsewhere. -->
+<section class="section gumlet-calculator" id="cost-calculator" aria-labelledby="calculator-title" data-gumlet-calculator>
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">COST CALCULATOR</span>
+      <h2 id="calculator-title">動画の保存量と配信量から、費用の目安を確認</h2>
+      <p>年払いの月額相当を試算します。保護・プレーヤーの条件に応じたプランと内訳を表示。個人情報の入力・収集はありません。</p>
+    </div>
+    <div class="calculator-ui" data-calculator-ui>
+      <div class="calculator-layout">
+        <form class="calculator-form" id="calculator-form" data-calculator-form novalidate aria-label="動画配信費用の試算条件">
+          <div class="calculator-field">
+            <label for="calculator-storage-number">保存動画の総再生時間 <span>分</span></label>
+            <input disabled id="calculator-storage-number" name="storageMinutes" type="number" inputmode="numeric" min="100" max="20000" step="1" value="600" required data-calc-field="storageMinutes" aria-describedby="calculator-storage-help calculator-storage-error">
+            <label class="calculator-visually-hidden" for="calculator-storage-range">保存動画の総再生時間（100分刻みのスライダー）</label>
+            <input disabled id="calculator-storage-range" type="range" min="100" max="20000" step="100" value="600" data-calc-range="storageMinutes" aria-describedby="calculator-storage-help">
+            <div class="calculator-range-limits" aria-hidden="true"><span>100分</span><span>20,000分</span></div>
+            <p id="calculator-storage-help" class="calculator-help">数値欄は1分単位（1,001分・3,001分も可）。スライダーは100分刻みの概算位置です。月間の追加量ではなく、保存中の合計時間を指定します。</p>
+            <p id="calculator-storage-error" class="calculator-error" data-calc-error="storageMinutes" hidden></p>
+          </div>
+          <div class="calculator-field">
+            <label for="calculator-bandwidth-number">月間の配信データ量 <span>GB</span></label>
+            <input disabled id="calculator-bandwidth-number" name="monthlyBandwidthGB" type="number" inputmode="numeric" min="100" max="10000" step="1" value="900" required data-calc-field="bandwidthGB" aria-describedby="calculator-bandwidth-help calculator-bandwidth-error">
+            <label class="calculator-visually-hidden" for="calculator-bandwidth-range">月間の配信データ量（100GB刻みのスライダー）</label>
+            <input disabled id="calculator-bandwidth-range" type="range" min="100" max="10000" step="100" value="900" data-calc-range="bandwidthGB" aria-describedby="calculator-bandwidth-help">
+            <div class="calculator-range-limits" aria-hidden="true"><span>100GB</span><span>10,000GB</span></div>
+            <p id="calculator-bandwidth-help" class="calculator-help">数値欄は1GB単位、スライダーは100GB刻み。平均2Mbps・十進GBの仮定では900GB ≒ 1,000時間の視聴です。</p>
+            <p id="calculator-bandwidth-error" class="calculator-error" data-calc-error="bandwidthGB" hidden></p>
+          </div>
+          <div class="calculator-field">
+            <label for="calculator-security">保護・プレーヤーの条件</label>
+            <select disabled id="calculator-security" name="securityRequirement" data-calc-field="security" aria-describedby="calculator-security-help calculator-security-error">
+              <option value="standard" selected>標準埋め込み・許可ドメイン・ロゴ非表示</option>
+              <option value="custom_player">独自プレイヤー／CRM連携</option>
+              <option value="watermark">動的ウォーターマーク</option>
+              <option value="drm">DRMを追加（月額$99）</option>
+            </select>
+            <p id="calculator-security-help" class="calculator-help">追加条件は1つ選択。独自プレイヤー／CRMではGrowth以上を保守的な比較候補とします。DRMのみなら保存1,000分以内はCreator＋DRMで試算します。複数条件の併用は契約前に確認してください。</p>
+            <p id="calculator-security-error" class="calculator-error" data-calc-error="security" hidden></p>
+          </div>
+          <fieldset class="calculator-billing" data-calculator-billing aria-describedby="calculator-billing-help calculator-billing-error">
+            <legend>年払いの料金条件</legend>
+            <label for="calculator-billing-referral"><input disabled id="calculator-billing-referral" name="calculator-billing-cycle" type="radio" value="annual_referral" checked> 紹介経由の20%割引を仮定（基本料のみ）</label>
+            <label for="calculator-billing-list"><input disabled id="calculator-billing-list" name="calculator-billing-cycle" type="radio" value="annual_list"> 年払い通常料金（割引なし）</label>
+            <p id="calculator-billing-help" class="calculator-help">どちらも月払い料金ではありません。割引の適用可否・期間は決済前に確認してください。</p>
+            <p id="calculator-billing-error" class="calculator-error" data-calc-error="billingCycle" hidden></p>
+          </fieldset>
+        </form>
+        <div class="calculator-results" id="calculator-results" data-calculator-results aria-live="polite" aria-atomic="false" aria-relevant="text" aria-labelledby="calculator-results-title">
+          <h3 id="calculator-results-title">Gumletの参考試算</h3>
+          <p class="calculator-status" data-calc-output="status">入力条件に基づく参考試算です。実際の請求額・最安を保証するものではありません。</p>
+          <p class="calculator-plan"><strong data-calc-output="plan">Creator</strong><span data-calc-output="caps">保存 1,000分 / 配信 3,000GB・月</span></p>
+          <p class="calculator-reason" data-calc-output="reason">保存動画がCreatorの1,000分枠以内。標準保護の条件ではCreatorを選択。</p>
+          <dl class="calculator-breakdown">
+            <div><dt>年払い基本料・通常料金</dt><dd data-calc-output="baseList">$6.00 / 月相当</dd></div>
+            <div><dt>紹介割引</dt><dd data-calc-output="discount">基本料のみ20%割引：−$1.20 / 月相当</dd></div>
+            <div><dt>適用後の基本料</dt><dd data-calc-output="base">$4.80 / 月相当</dd></div>
+            <div><dt>年払い基本料の一括前払い額</dt><dd data-calc-output="upfront">$57.60 / 年（基本料のみ・一括前払い）</dd></div>
+            <div><dt>配信量の超過費用</dt><dd data-calc-output="bandwidth">$0.00 / 月（超過 0GB）</dd></div>
+            <div><dt>Business保存量の超過費用</dt><dd data-calc-output="storage">$0.00 / 月（超過 0分・比例計算の参考値）</dd></div>
+            <div><dt>DRM追加費用</dt><dd data-calc-output="drm">$0.00 / 月（DRM追加なし）</dd></div>
+          </dl>
+          <div class="calculator-total">
+            <span>合計（月額相当・税別）</span>
+            <strong data-calc-output="totalMonthlyUSD">$4.80 / 月相当</strong>
+            <p data-calc-output="totalAnnualUSD">$57.60 / 年の参考総額</p>
+          </div>
+          <p class="calculator-help">年間参考総額は、毎月同じ利用量を仮定した「月額相当 × 12」。一括請求額や実際の年間請求書ではありません。表示上のみ端数を丸めています。</p>
+          <p class="calculator-jpy"><span data-calc-output="jpy">月相当 約720円 / 年 約8,640円</span><small>1USD＝150円という仮の固定レート。実勢為替・決済手数料を反映しません。</small></p>
+          <div class="calculator-benchmarks">
+            <h4>他サービスは、同等仕様ではなく料金の参考値</h4>
+            <div class="calculator-benchmark">
+              <h5>Cloudflare Stream</h5>
+              <strong data-calc-output="cloudflareTotal">$65.00 / 月</strong>
+              <p data-calc-output="cloudflareBreakdown">保存 $5.00（1,000分ブロック × 1）＋ 配信 $60.00（約60,000分 / 1,000時間）</p>
+              <p>通常のエンコードは無料。平均2Mbps・十進GBで配信分数へ換算し、保存は1,000分単位の購入ブロックで試算。DRMは同等ではなく、プレーヤー・保護機能も別途比較が必要です。</p>
+            </div>
+            <div class="calculator-benchmark">
+              <h5>Vimeo（年払いの料金ベンチマーク）</h5>
+              <strong data-calc-output="vimeoBenchmark">Core $24.50 / 月相当（年払い目安）</strong>
+              <p>年払い月額相当の目安：Creator $9 / Core $24.50 / Professional $71。保存1,000分以内はCore、超える場合はProfessionalを参考表示する便宜的なルールです。保存・配信・保護の要件を満たすと保証するプラン選定ではありません。</p>
+            </div>
+          </div>
+          <p class="calculator-comparison-note">この試算は自動的な最安保証ではありません。画質・ビットレート・実際の視聴量・必要な保護機能・契約条件を揃えて比較してください。</p>
+        </div>
+      </div>
+      <div class="calculator-action">
+        <a class="button button-primary calculator-cta" href="https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593" data-gumlet-affiliate="true" data-cta-placement="calculator" target="_blank" rel="noopener noreferrer sponsored"><span data-calculator-cta-text>Creatorで無料体験する（20%OFFは適用確認）</span><span class="calculator-visually-hidden">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a>
+        <p class="calculator-help">紹介リンクです。料金・機能・割引条件は公式の決済画面でご確認ください。</p>
+      </div>
+    </div>
+    <p class="calculator-visible-terms">年払い基本料は一括請求・DRM/超過/税別・割引適用は決済前に確認。</p>
+    <details class="calculator-assumptions">
+      <summary>試算の前提条件・注意事項を確認</summary>
+      <div>
+        <p>料金確認日：2026年11月5日。公開資料で20%OFFの対象・期間・年払い併用を確約できないため、本診断では指定された紹介割引率を仮定し、決済前の確認を必須とします。</p><p>年払い月額相当の基本料：Creator $6、Growth $19、Business $99。紹介経由の20%割引は基本料だけを対象に仮定し、DRM・保存超過・配信超過には適用しません。基本料は適用後の月額相当 × 12を年払いで一括前払いします。</p>
+        <p>CreatorのHLS／DASH対応は現行料金表に記載がありますが、公式DocsのVideo FAQsにはCreatorのHLS／MP4直接URLは不可という説明もあります。公開資料間で条件が異なるため、独自プレイヤーはGrowth以上を保守的な比較候補とし、URL提供条件を契約前に公式へ確認してください。CRM連携・期限付き署名URLはGrowth以上です。帯域超過が多い場合は上位プランの総費用も比較してください。</p><p>保存枠はCreator 1,000分、Growth 3,000分、Business 15,000分。動的ウォーターマークまたは保存3,000分超でBusiness、カスタムプレーヤーまたは保存1,000分超でGrowth、それ以外はCreator。DRMのみでは上位プランを必須にしません。</p>
+        <p>月間配信枠は全プラン3,000GB。超過1GBあたりCreator $0.15、Growth $0.10、Business $0.06。Businessの保存15,000分を超える分のみ、$3 / 1,000分を比例計算した参考値です（1分あたり$0.003）。実際の請求単位・端数処理・適用条件は確認が必要で、この比例計算を実請求方式として保証しません。</p>
+        <p>DRMは月額$99を追加し、DRM視聴100,000回 / 月を含む仮定です。その枠を超えたDRM視聴費用は本試算の対象外。DRMは紹介割引対象外です。</p>
+        <p>Cloudflare Streamは保存1,000分単位の購入ブロックを切り上げ、1ブロック$5で計算。配信は1,000分あたり$1。配信分数＝GB × 10億bytes × 8 ÷（200万bits/秒 × 60）。900GBでは60,000分＝1,000時間です。通常エンコードは無料ですが、DRMやGumletの機能と同等とみなした比較ではありません。</p>
+        <p>Vimeoの参考基本料は年払い月額相当でCreator $9、Core $24.50、Professional $71。要件充足・実際の請求額・超過費用を算定するものではなく、同等仕様の見積もりではありません。</p>
+        <p>年間参考総額は利用量を毎月一定と仮定した月額相当 × 12。税金・実勢為替・決済手数料・個別契約条件は含みません。円換算は仮の固定レート1USD＝150円を使用し、価格や割引の将来継続、実際の適用、最安を保証しません。</p>
+        <p>計算はブラウザー内で行い、保存量・配信量を送信・保存しません。ページでアクセス解析が利用可能な場合、操作後に一度だけプラン名・年払い条件・保護条件を計測します。氏名・メールなどの個人情報や入力した保存量・配信量は送信しません。</p>
+      </div>
+    </details>
+    <ul class="cro-sources"><li><a href="https://developers.cloudflare.com/stream/pricing/" target="_blank" rel="noopener noreferrer">Cloudflare Stream公式料金</a></li><li><a href="https://vimeo.com/upgrade-plan" target="_blank" rel="noopener noreferrer">Vimeo公式料金</a></li></ul><p class="calculator-pricing-link"><a class="inline-link" href="/pricing">料金プランと条件を詳しく確認</a></p>
+    <noscript>
+      <div class="calculator-noscript"><p>上の内訳は初期条件の静的参考値です。入力操作はJavaScriptが有効な場合にのみ利用できます。</p>
+        <p>JavaScriptが無効のため自動試算はできません。年払い通常料金の月額相当はCreator $6（保存1,000分）、Growth $19（3,000分）、Business $99（15,000分）。全プラン月間配信3,000GBを含みます。</p>
+        <p>紹介20%割引は基本料のみの仮定です。DRMは別途月額$99。配信超過は1GBあたり$0.15 / $0.10 / $0.06、Business保存超過は$3 / 1,000分の比例参考値です。税別・実際の請求条件は確認が必要です。<a href="/pricing">料金ページでプラン・条件を確認してください。</a></p>
+      </div>
+    </noscript>
+  </div>
+</section>
+<script src="/pricing-data.js?v=20261105-1" defer></script>
+<script src="/calculator.js?v=20261105-1" defer></script>

@@ -1,0 +1,327 @@
+[
+  {
+    "file": "articles/gumlet-vs-cloudflare-stream-aws-comparison.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "この記事ではオンデマンド動画を対象に、Gumlet、Cloudflare Stream、Amazon S3＋CloudFront＋MediaConvertを比較します。判断軸は運用範囲と課金単位です。料金は2026年11月3日に確認した公式公開情報をもとに、米ドルで記載しています。税金や為替、個別契約による差は含めていません。",
+      "Creator 6ドル、Growth 19ドル、Business 99ドル／月相当。いずれも年払い",
+      "保存容量1,000分ごとに月5ドル＋配信1,000分につき1ドル",
+      "配信超過はCreator 0.15ドル、Growth 0.10ドル、Business 0.06ドル／GB。Creator・Growthの保存超過は上位プランへ変更。Businessは1,000分につき月3ドルで、保存上限200,000分",
+      "有料プランにWidevine／FairPlay DRMを月99ドルで追加可能。月100,000 viewsを含み、超過は1,000 viewsにつき1ドル",
+      "Cloudflare Streamでは保存枠1,000分が月5ドル、配信60,000分が60ドルで、合計65ドルです。Gumletは保存600分と配信900 GBならCreatorの枠内なので、標準埋め込みを使い、追加機能を付けない条件では年払い月額換算6ドル、年額72ドルが基準になります。ただし、両社が同じビットレートや画質で配信することを保証する例ではありません。Gumletの実際の利用量は配信されたデータ量で確認する必要があります。",
+      "AWSのCloudFront従量制には、月1 TBのインターネット向け転送と月1,000万件のHTTP／HTTPSリクエストの無料枠があります。この例で他の利用による消費がなく、対象利用が枠内に収まれば、CloudFrontの該当費用は発生しない可能性があります。それでもS3の保存・リクエストやMediaConvertの変換などは別です。日本向けの従量転送は、最初の無料1 TBに続く9 TBの帯域で0.114ドル／GBが掲載されています。視聴者の地域と適用段階を確認し、",
+      "Creatorは年払い月額換算6ドルですが、公式FAQではGumletの埋め込みとプレイヤーに限定され、HLS・MP4 URLは利用できないと説明されています。独自プレイヤーが必須なら、価格だけでCreatorを選ばず、対応する上位プランと配信URLの提供条件を確認してください。GrowthにはCRM連携、Businessには動的ウォーターマークやカスタム視聴者分析などが案内されています。月額差は、必要な機能と保存枠の差として判断するのが適切です。",
+      "Gumletは有料プランに月99ドルでWidevine・FairPlay DRMを追加でき、月100,000 viewsまでを含みます。標準iframeや埋め込みSDKではプレイヤー側のDRM設定が組み込まれている一方、独自プレイヤーではライセンスサーバーURLやFairPlay証明書URLの設定が必要です。",
+      "一律に必要とはいえません。ログインした会員にだけ視聴を許可したい場合は、アプリ側の認可と署名URLなどで要件を満たせるかを検討します。WidevineやFairPlayによるコンテンツ保護が必要なら、DRMの対応端末やライセンス条件まで確認します。GumletのDRMは有料プランに月99ドルの追加料金がかかり、配信量とは別に月間viewsの枠と超過料金もあります。"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>"
+    ]
+  },
+  {
+    "file": "articles/online-course-video-drm-protection.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "2026年11月3日に確認した公式料金では、年払いの月額換算はCreatorが6米ドル、Growthが19米ドル、Businessが99米ドルです。Dynamic WatermarkはBusinessに含まれ、EnterpriseはBusinessの機能に加えてDRM込みの個別見積もりです。Creator・Growthの基本料金だけで、DRMと動的透かしの両方が使えるわけではありません。",
+      "DRMアドオンは有料プランに月額99米ドルを追加する方式で、月10万回のDRM保護視聴を含みます。超過分は追加1,000回につき1米ドルです。「視聴回数」は受講者数と同じではないため、再視聴を含む利用量や計数条件を確認します。また、DRMの視聴枠と動画の配信帯域枠は別です。",
+      "DRMとDynamic Watermarkを組み合わせる例は、Businessの月額換算99米ドル＋DRM月額99米ドル＝198米ドル／月相当です。",
+      "Businessの基本料金は年払いで1,188米ドルとなり、DRMアドオンの月額費用を別に見込みます。説明用に1米ドル＝150円と仮定すると、合計は約29,700円／月相当です。これは実勢為替を示すものではなく、税、決済手数料、超過利用料を含まない試算です。「月額数千円ですべての保護がそろう」とは案内できません。",
+      "例えば月15万回のDRM保護視聴なら、10万回を超える5万回の追加費用は50米ドルです。この場合、上記の構成は合計248米ドル／月相当、同じ仮定レートで約37,200円となります。さらにBusinessの配信帯域3,000GB／月を超えると1GBにつき0.06米ドル、保存15,000分の枠を超える場合も別途費用が発生します。動画の長さや画質によっては、DRMの視聴枠より先に帯域枠を使い切る点に注意してください。",
+      "DRMのみをCreatorと組み合わせる場合も、年払い基本料の月額換算6米ドルに99米ドルを足して105米ドル／月相当です。この構成にはBusinessの動的透かしは含まれません。なお、公式FAQではCreatorはGumletプレーヤーでの埋め込み利用に限られ、HLS・MP4直接URLは提供されないとされています。独自プレーヤーを使うならプラン条件も確認します。",
+      "2026年11月3日確認の通常料金では、Businessの年払い月額換算99米ドルとDRMアドオン月額99米ドルで、合計198米ドル／月相当が目安です。1米ドル＝150円と仮定すると約29,700円／月相当ですが、基本プランは年払いで、税・決済手数料・超過利用料は含まない試算です。DRMは月10万回の保護視聴を含み、追加1,000回につき1米ドルです。帯域や保存枠の超過は別に確認が必要で、EnterpriseはDRM込みの個別見積もりです。"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>"
+    ]
+  },
+  {
+    "file": "articles/vimeo-bandwidth-overage-guide.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "年払いの月額相当：Creator $6／Growth $19／Business $99。各プラン月3,000GBの帯域枠。税・アドオン別",
+      "利用枠＋超過GB課金。公開ストリーミング超過単価はCreator $0.15/GB、Growth $0.10/GB、Business $0.06/GB",
+      "有料プラン向けWidevine／FairPlayアドオン：月額$99、月10万視聴を含む。追加1,000視聴あたり$1。Enterpriseは個別契約条件を確認",
+      "料金確認日：2026年11月3日。プラン・利用枠・超過単価・税は変更されます。$0.02〜$0.05/GBは本記事で使う公開Videoプランの標準超過単価としては確認できないため、試算に使用していません。大口契約に独自単価がある場合は個別見積りを優先してください。",
+      "$6",
+      "$4.80（年額 $57.60）",
+      "$19",
+      "$15.20（年額 $182.40）",
+      "$99",
+      "$79.20（年額 $950.40）"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\">紹介リンク経由の特典です。対象プラン・年払いとの併用・適用期間は購入画面で確認してください。</p>",
+      "<p class=\"offer-note\">紹介特典の適用・年払いとの併用・最終価格は公式の購入画面で確認してください。</p>"
+    ]
+  },
+  {
+    "file": "articles/vimeo-domain-restriction-security.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "Vimeoの公式料金ページでは、新しい個人向けプランとしてCreator・Core・Professionalを掲載しています。CoreとProfessionalの個別ヘルプには段階展開中との注記があるため、すべてのアカウントが同じ表示とは限りません。Starter・Standard・Advancedなどの旧情報を新プランの料金や機能にそのまま当てはめないでください。",
+      "VimeoとGumletの機能・プラン対応・コスト比較（2026年11月3日公式確認、米ドル）",
+      "年払い月額換算：Creator $9／Core $24.50／Professional $71。月払いはそれぞれ$16／$40／$120。Enterpriseは個別見積もり。",
+      "年払い月額換算：Creator $6／Growth $19／Business $99。Enterpriseは個別見積もり。",
+      "新プランではCoreにEmbed domain-level privacyを明記。ProfessionalはCoreの機能を継承。Coreの基本料金は年払い月額換算$24.50。新Creatorへの対応は一般的な旧ヘルプ記載から推定せず要確認。",
+      "公式料金表のCreator（月額換算$6）にDomain restrictionを掲載。設定はAccess Allowed Referrersを使用。Growth・Businessを含め、契約別の詳細条件は管理画面で確認。",
+      "Business（月額換算$99）の機能として掲載。Player Settings → Advanced Settingsで設定し、埋め込みURLのwatermark_textで文字を渡す。公式Docsでは埋め込みコードでの利用が対象。",
+      "有料プランに月額$99のアドオンとして追加可能。Widevine・FairPlay対応、毎月10万DRM視聴を含む。超過は1,000視聴あたり$1。Enterpriseは公式料金表にDRM includedと記載。",
+      "上表の料金は米ドルの公式表示です。Vimeoの価格表示には適用税が別途かかる旨が明記されています。価格改定や契約条件の違いがあるため、申し込み時には実際の請求画面を確認してください。Gumletの署名付きURLやVimeoの動的透かしについて、未確認を「非対応」と断定しているわけではありません。",
+      "GumletでCreatorを年払い契約し、DRMアドオンを追加する場合、月額換算の基本料金$6とDRM月額$99の合計は$105です。これは年払い基本料金を月で割った比較上の金額であり、毎月の請求額が$105になるという意味ではありません。BusinessとDRMなら同じ計算で$198となり、料金表上のDynamic Watermarkも選択肢に入ります。",
+      "動的透かしは、対応する契約でPlayer Settings → Advanced SettingsのDynamic Watermarkを設定し、埋め込みURLに"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>"
+    ]
+  },
+  {
+    "file": "articles/vimeo-to-gumlet-migration-guide.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "2026年11月3日時点の公式Docsでは、専用インポートの要件はVimeo Standard、Proまたはそれ以上のプランと、Gumletの有料アカウントです。Vimeo FreeはAPIのダウンロード制限により対象外です。トライアルを含むすべてのアカウントで利用できるとは考えず、契約画面と公式条件を確認してください。"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。</p>"
+    ]
+  },
+  {
+    "file": "articles/wordpress-video-speed-optimization.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [],
+    "offer_notes": [
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>",
+      "<p class=\"offer-note\">年払い35%OFFと紹介20%OFFが順次適用される場合、1 − 0.65 × 0.80 = 48%OFFです。全プラン共通の割引率ではありません。対象プラン・併用可否・期間・税・最終価格は購入画面で確認してください。DRMなどの追加オプションに同じ割引が適用されるとは限りません。</p>"
+    ]
+  },
+  {
+    "file": "guide/embed/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [],
+    "offer_notes": []
+  },
+  {
+    "file": "guide/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [],
+    "offer_notes": []
+  },
+  {
+    "file": "guide/paid-plan/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"inline-link\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "Growth ($32/月〜)",
+      "Business ($199/月〜)",
+      "$0.50 / GB",
+      "$0.15 / GB",
+      "$0.08 / GB",
+      "Creator ($6/月〜)",
+      "Growth ($19/月〜)",
+      "Business ($99/月〜)",
+      "オプション（+$99/月）",
+      "オプション（+$99/月）"
+    ],
+    "offer_notes": []
+  },
+  {
+    "file": "guide/vimeo-migration/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      ": VimeoのStandard、Pro、Business、またはEnterpriseなどの有料プランが必要です。（※Vimeo側のAPI制限により、Freeアカウントからは直接インポートできません）"
+    ],
+    "offer_notes": []
+  },
+  {
+    "file": "index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\" aria-describedby=\"header-offer-note header-guidance\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"table-source\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\" aria-describedby=\"comparison-offer-note comparison-guidance\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"inline-link docs-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"inline-link analyzer-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\" aria-describedby=\"final-offer-note final-guidance\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\" aria-describedby=\"footer-offer-note\">",
+      "<a class=\"button button-primary button-small\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\" tabindex=\"-1\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [
+      "Standard / Advancedの目安。上限超過リスクやシート・容量制限は個別に確認が必要です。",
+      "約$40〜$60",
+      "月額 約$10〜$20",
+      "Standard",
+      "$25",
+      "Advanced",
+      "$75",
+      "年払い時の月額相当・税別。Standard 4TB／5席、Advanced 7TB／10席。Enterpriseは個別見積りです。上限容量・シート条件は最新情報を確認してください。",
+      "$0.085",
+      "$0.114",
+      "$6",
+      "$19",
+      "$99",
+      "年払い時の月額相当。ストレージ・帯域枠付き。DRMは月額アドオン。公開料金表のストリーミング超過料金はプランにより$0.06〜$0.10/GBです。",
+      "Creator/Growth $0.10/GB、Business $0.06/GB（公式料金表の表示）",
+      "※2026年時点の各社公式サイト公開プランに基づく参考価格です。日本円表記は1ドル＝約156.8円で換算しています。為替レートの変動、利用規模、追加オプションにより実際の金額は異なります。",
+      "Standard・Advancedは年払いと月払いで料金が異なり、Enterpriseは個別見積りです。利用上限・追加条件は公式料金表で確認します。",
+      "Creator、Growth、Businessは年払い価格と利用枠が公開されています。公開料金表では、ストリーミング超過料金はプラン別に$0.06〜$0.10/GBです。",
+      "$6 / 月",
+      "$4.80 / 月",
+      "$19 / 月",
+      "$15.20 / 月",
+      "$99 / 月",
+      "$79.20 / 月"
+    ],
+    "offer_notes": [
+      "<p class=\"offer-note\" id=\"header-offer-note\">※本ページのリンク経由でアカウント作成・アップグレードすると自動で20%OFFが適用されます（プロモーションコードの入力は不要です）</p>",
+      "<p class=\"offer-note\" id=\"header-guidance\">※ 公式サイトは英語表記ですが、Googleアカウント連携またはメールアドレス入力のみ（約1分）で登録完了します。直感的なUIのため専門知識なしですぐにご利用いただけます。</p>",
+      "<p class=\"offer-note\" id=\"hero-offer-note\">※年払い併用で実質最大48%OFFが適用される場合があります。対象プラン・適用条件は公式料金ページでご確認ください。</p>",
+      "<p class=\"offer-note\" id=\"comparison-offer-note\">※本ページのリンク経由でアカウント作成・アップグレードすると自動で20%OFFが適用されます（プロモーションコードの入力は不要です）</p>",
+      "<p class=\"offer-note\" id=\"final-offer-note\">※本ページのリンク経由でアカウント作成・アップグレードすると自動で20%OFFが適用されます（プロモーションコードの入力は不要です）</p>",
+      "<p class=\"container offer-note\" id=\"footer-offer-note\">※本ページのリンク経由でアカウント作成・アップグレードすると自動で20%OFFが適用されます（プロモーションコードの入力は不要です）</p>"
+    ]
+  },
+  {
+    "file": "pricing/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [],
+    "offer_notes": []
+  },
+  {
+    "file": "vimeo-alternative/index.html",
+    "anchors": [
+      "<a class=\"button button-small button-primary\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary\" href=\"https://www.gumlet.com/pricing?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"button button-primary button-large\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">",
+      "<a class=\"text-link\" href=\"https://www.gumlet.com/?fpr=daisuke-okamoto-0d1593\" data-gumlet-affiliate=\"true\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">"
+    ],
+    "ga": [
+      "https://www.googletagmanager.com/gtag/js?id=G-9KJF5ZSXY5",
+      "/script.js?v=20261024-1"
+    ],
+    "pricing": [],
+    "offer_notes": []
+  }
+]
