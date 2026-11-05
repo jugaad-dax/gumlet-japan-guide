@@ -360,6 +360,9 @@ h1 span { color: var(--accent); font-size: 1.18em; letter-spacing: -.06em; }
 .callout p { color: var(--muted); }
 .operator-info { padding-block: 48px; border-top: 1px solid var(--line); background: var(--surface); }
 .operator-info h2 { font-size: 23px; }
+.operator-info .operator-meta { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px 20px; max-width: 640px; margin: 18px 0 24px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--muted); font-size: 13px; }
+.operator-meta dt { color: var(--subtle); }
+.operator-meta dd { margin: 0; }
 .operator-info dl { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 10px 24px; max-width: 860px; margin: 0; color: var(--muted); font-size: 13px; }
 .operator-info dt { color: var(--subtle); }
 .operator-info dd { margin: 0; }
