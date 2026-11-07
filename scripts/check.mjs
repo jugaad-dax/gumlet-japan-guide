@@ -39,8 +39,11 @@ const expectedRedirects = 'https://gumlet-japan-guide.pages.dev/* https://site-s
 assert.equal(redirects, expectedRedirects);
 assert.equal((html.match(/<link rel="canonical" href="https:\/\/site-speedup\.com\/">/g) || []).length, 1);
 assert(html.includes('<meta name="robots" content="index, follow">'));
-assert(html.includes('"@type": "ItemList"'));
-assert(html.includes('"numberOfItems": 6'));
+assert(html.includes('"@type": "WebSite"'));
+assert(html.includes('"@type": "Organization"'));
+assert(html.includes('"@type": "SoftwareApplication"'));
+assert(html.includes('"@type": "FAQPage"'));
+assert(!html.includes('"@type": "ItemList"'));
 assert(html.includes('実質最大48%OFF'));
 assert(!html.includes('請求書払い'));
 assert(!html.includes('銀行振込'));
